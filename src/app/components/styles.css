@@ -1,0 +1,12 @@
+/* NAVIGATION */
+.navContainer {
+    @apply flex w-full p-4 text-center text-white text-3xl mb-4;
+}
+
+.menuItem {
+    @apply text-gray-400 items-center justify-center hover:text-red-400 transition-colors duration-500;
+}
+
+.active {
+    @apply text-red-400;
+}
