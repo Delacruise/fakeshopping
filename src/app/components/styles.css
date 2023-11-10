@@ -1,12 +1,34 @@
 /* NAVIGATION */
 .navContainer {
-    @apply flex w-full p-4 text-center text-white text-3xl mb-4;
+  @apply flex w-full p-4 text-center text-white text-3xl mb-4;
 }
 
 .menuItem {
-    @apply text-gray-400 items-center justify-center hover:text-red-400 transition-colors duration-500;
+  @apply text-gray-400 items-center justify-center hover:text-red-400 transition-colors duration-500;
 }
 
 .active {
-    @apply text-red-400;
+  @apply text-red-400;
+}
+
+/* NAVIGATION */
+.footerContainer {
+}
+
+.column{ @apply w-1/4}
+
+.socialIcons {
+  @apply flex gap-4 mt-4;
+}
+
+.icon {
+  @apply bg-red-900 pt-1 pb-1 p-2  text-white rounded-md text-base;
+}
+
+.footerTitle {
+  @apply font-bold uppercase text-lg text-left mb-2 text-red-800;
+}
+
+.footerLink {
+  @apply text-gray-400 font-normal text-lg text-left hover:text-red-400 transition-colors duration-500 cursor-pointer;
 }
