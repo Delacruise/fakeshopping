@@ -27,7 +27,7 @@ export default function ProductCategories() {
   if (categoriesData != undefined) {
     return (
       <>
-        <div className='blockTitle cursor-pointer'>categories</div>
+        <div className='blockTitle '>categories</div>
         {categoriesData.map((category) => (
           <div className='flex gap-2 mb-2 content-center hover:text-indigo-300 '>
             <input type='checkbox' className='cursor-pointer' />

@@ -66,3 +66,16 @@
 .searchButton{
   @apply border-0 text-white bg-green-600 p-2;
 }
+
+/* PRODUCTS FILTER */
+.priceFilter {
+  @apply bg-white flex gap-4 w-full items-center
+}
+
+.max,.min {
+@apply flex gap-1;
+}
+
+.slider {@apply  w-full;}
+
+.line {@apply w-full border-t-2 border-b-2 p-0}

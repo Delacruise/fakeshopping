@@ -7,7 +7,6 @@ export default function Products() {
     <div className='pageContainer flex gap-4'>
       <div className='leftCol '>
         <div className='containerBlocks'>
-          <div className='blockTitle'>Filter</div>
           <Filter />
         </div>
         <div className='containerBlocks'>
