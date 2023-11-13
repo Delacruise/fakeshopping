@@ -9,12 +9,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className=''>
+    <html lang='en'>
+      <body className='overflow-x-hidden'>
         <Navigation></Navigation>
         {children}
         <Footer></Footer>
-        </body>
+      </body>
     </html>
-  )
+  );
 }

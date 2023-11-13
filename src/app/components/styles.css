@@ -39,15 +39,15 @@
 }
 
 .sliderRow {
-  @apply flex justify-start gap-4 flex-nowrap;
+  @apply flex justify-between gap-4 flex-nowrap overflow-x-auto flex space-x-4;
 }
 
 .cardSlider {
-@apply w-64 bg-gray-200 rounded-lg border border-gray-300 ;
+@apply w-64 bg-gray-200 rounded-lg border border-gray-300 mb-4;
 }
 
 .cardImage {
-@apply rounded-lg rounded-b-none;
+@apply rounded-lg rounded-b-none max-h-64 max-w-xl;
 }
 
 .cardTitle {
