@@ -17,3 +17,7 @@
 .blockTitle {
     @apply text-gray-500 font-semibold tracking-widest text-2xl mb-8 uppercase;
 }
+
+textarea:focus, input:focus{
+    outline: none;
+}

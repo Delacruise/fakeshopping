@@ -53,3 +53,16 @@
 .cardTitle {
   @apply rounded-lg rounded-b-none p-4 w-full text-gray-500 font-semibold text-base capitalize;
 }
+
+/* SEARCH BAR */
+.searchBar {
+  @apply w-full border rounded-lg border-gray-200 flex overflow-hidden
+}
+
+.searchInput {
+  @apply border-0 w-full p-2 text-gray-600;
+}
+
+.searchButton{
+  @apply border-0 text-white bg-green-600 p-2;
+}
