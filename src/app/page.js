@@ -12,9 +12,10 @@ export default function Home() {
       <div className='productCategory w-full p-4 mb-4'>
         <CategorySlider />
       </div>
-      <div className='featuredProducts w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
+      {/* TODO: show random featured product categories */}
+      {/* <div className='featuredProducts w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
         Featured Categories
-      </div>
+      </div> */}
       <div className='pageFiller w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
         Page Filler
       </div>

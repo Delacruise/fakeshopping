@@ -40,16 +40,18 @@ export default function CategorySlider() {
         <h1 className='sliderTitle '>Categories</h1>
         <div className='sliderRow'>
           {categoriesDate.map((category) => (
-            <div className='cardSlider'>
-              <Image
-                src={category.image}
-                alt=''
-                height={256}
-                width={256}
-                className='cardImage '
-              />
-              <div className='cardTitle '>{category.name}</div>
-            </div>
+            <a href='/pages/products'>
+              <div className='cardSlider'>
+                <Image
+                  src={category.image}
+                  alt=''
+                  height={256}
+                  width={256}
+                  className='cardImage '
+                />
+                <div className='cardTitle '>{category.name}</div>
+              </div>
+            </a>
           ))}
         </div>
       </>
