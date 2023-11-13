@@ -32,3 +32,24 @@
 .footerLink {
   @apply text-gray-400 font-normal text-lg text-left hover:text-red-400 transition-colors duration-500 cursor-pointer;
 }
+
+/* SLIDERS */
+.sliderTitle{
+@apply uppercase w-full text-gray-500 font-semibold tracking-widest text-3xl mb-8;
+}
+
+.sliderRow {
+  @apply flex justify-start gap-4 flex-nowrap;
+}
+
+.cardSlider {
+@apply w-64 bg-gray-200 rounded-lg border border-gray-300 ;
+}
+
+.cardImage {
+@apply rounded-lg rounded-b-none;
+}
+
+.cardTitle {
+  @apply rounded-lg rounded-b-none p-4 w-full text-gray-500 font-semibold text-base capitalize;
+}
