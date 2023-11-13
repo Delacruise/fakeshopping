@@ -11,7 +11,6 @@ export default function Products() {
           <Filter />
         </div>
         <div className='containerBlocks'>
-          <div className='blockTitle'>categories</div>
           <Categories />
         </div>
       </div>

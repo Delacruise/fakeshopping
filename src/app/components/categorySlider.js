@@ -4,22 +4,15 @@ import GetCategories from '../api/getCategories/route';
 import { useState, useEffect } from 'react';
 
 export default function CategorySlider() {
-  const cat = {
-    id: 1,
-    name: 'change',
-    image: 'https://i.imgur.com/QkIa5tT.jpeg',
-    creationAt: '2023-11-12T18:47:00.000Z',
-    updatedAt: '2023-11-13T05:02:25.000Z',
-  };
 
   const [loading, setLoading] = useState(false);
-  const [categoriesDate, setCategoriesDate] = useState();
+  const [categoriesData, setCategoriesData] = useState();
 
   const fetchData = async () => {
     try {
       const categoriesRes = await GetCategories();
       if (categoriesRes) {
-        setCategoriesDate(categoriesRes);
+        setCategoriesData(categoriesRes);
         setLoading(true);
       }
     } catch (error) {
@@ -29,17 +22,17 @@ export default function CategorySlider() {
   };
 
   useEffect(() => {
-    if (!loading && categoriesDate == undefined) {
+    if (!loading && categoriesData == undefined) {
       fetchData();
     }
   });
 
-  if (categoriesDate != undefined) {
+  if (categoriesData != undefined) {
     return (
       <>
         <h1 className='sliderTitle '>Categories</h1>
         <div className='sliderRow'>
-          {categoriesDate.map((category) => (
+          {categoriesData.map((category) => (
             <a href='/pages/products'>
               <div className='cardSlider'>
                 <Image
