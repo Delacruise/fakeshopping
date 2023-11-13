@@ -1,0 +1,7 @@
+.leftCol {
+  @apply w-96 min-h-screen;
+}
+
+.rightCol {
+  @apply w-full min-h-screen;
+}

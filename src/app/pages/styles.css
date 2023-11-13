@@ -1,0 +1,19 @@
+@import '../pages/products/styles.css';
+@import '../pages/productDetail/styles.css';
+@import '../pages/payment/styles.css';
+@import '../pages/contact/styles.css';
+@import '../pages/checkout/styles.css';
+@import '../pages/cart/styles.css';
+@import '../pages/404/styles.css';
+
+.pageContainer{
+    @apply border-t border-b p-4 bg-gray-100 border-gray-300;
+}
+
+.containerBlocks {
+    @apply bg-white p-4 rounded-lg mb-4
+}
+
+.blockTitle {
+    @apply text-gray-500 font-semibold tracking-widest text-2xl mb-8 uppercase;
+}
