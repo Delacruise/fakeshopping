@@ -8,6 +8,7 @@ const nextConfig = {
       'api.lorem.space',
       'icons-store.com.mx',
       'placeimg.com',
+      'm.media-amazon.com',
     ],
   },
 };

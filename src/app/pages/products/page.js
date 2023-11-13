@@ -56,24 +56,30 @@ export default function Products() {
                 {productsCount} products matched
                 <div className='productsGrid'>
                   {productsData.map((product) => (
-                    <div className='cardSlider '>
-                      <div className='overflow-hidden'>
-                        <Image
-                          src={product.images[0]}
-                          alt={product.title}
-                          width={256}
-                          height={256}
-                          className='cardImage'
-                        />
-                      </div>
-                      <div className='cardTitle'>
-                        <div className='w-full text-sm'>
-                          {product.category.name}
+                    <a href={`/pages/productDetail?id=${product.id}`}>
+                      <div className='cardSlider '>
+                        <div className='overflow-hidden'>
+                          <Image
+                            src={product.images[0]}
+                            alt={product.title}
+                            width={256}
+                            height={256}
+                            className='cardImage'
+                          />
                         </div>
-                        <div className='w-full text-lg truncate'>{product.title}</div>
-                        <div className='w-full text-lg text-red-800'>$ {product.price}</div>
+                        <div className='cardTitle'>
+                          <div className='w-full text-sm'>
+                            {product.category.name}
+                          </div>
+                          <div className='w-full text-lg truncate'>
+                            {product.title}
+                          </div>
+                          <div className='w-full text-lg text-red-800'>
+                            $ {product.price}
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>
