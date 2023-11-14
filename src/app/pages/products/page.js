@@ -10,21 +10,30 @@ import Categories from '../../components/productCategories';
 export default function Products() {
   const [productsData, setProductsData] = useState();
   const [productsCount, setProductsCount] = useState(0);
+  const [filteredProducts, setFilteredProducts] = useState();
   const [loading, setLoading] = useState(false);
 
   var queryString = window.location.search;
   var urlParams = new URLSearchParams(queryString);
   var paramCategory = urlParams.toString();
   var parts = paramCategory.split('=');
-  const productName = parts[1];
+  const categoryName = parts[1];
 
   const fetchData = async () => {
     try {
       const productsRes = await GetProducts();
-      if (productsRes) {
-        setProductsData(productsRes);
-        setProductsCount(productsRes.length);
+      if (productsRes) {    
         setLoading(true);
+        if (categoryName) {
+          var filterProds = productsRes.filter(
+            (product) => product.category.name === categoryName
+          );
+          setProductsData(filterProds);
+          setProductsCount(filterProds.length);
+        } else {
+          setProductsData(productsRes);
+          //setProductsCount(productsRes.length);
+        }
       }
     } catch (error) {
       console.error('Error PRODUCTS DATA fetching data:', error);
@@ -38,7 +47,7 @@ export default function Products() {
     }
   });
 
-  if (productsData != undefined) {
+  if (productsData != undefined ) {
     return (
       <div className='pageContainer flex gap-4'>
         <div className='leftCol '>
@@ -46,7 +55,7 @@ export default function Products() {
             <Filter />
           </div>
           <div className='containerBlocks'>
-            <Categories category={productName} />
+            <Categories category={categoryName} />
           </div>
         </div>
         <div className='rightCol'>
