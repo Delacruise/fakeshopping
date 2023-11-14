@@ -5,9 +5,6 @@ export default function Footer() {
     <footer className='footerContainer w-full p-4 text-center text-white text-3xl flex gap-10 justify-between'>
       <div className='column p-4'>
         <Image src='/logo.png' alt='Logo' width={150} height={150} />
-        <p className='text-sm tracking-widest text-left mt-4 uppercase text-gray-400 font-semibold'>
-          Old Crow Fakes
-        </p>
         <div className='socialIcons'>
           <div className='icon'>x</div>
           <div className='icon'>f</div>
