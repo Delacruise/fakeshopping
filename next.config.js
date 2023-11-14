@@ -15,6 +15,9 @@ const nextConfig = {
       'liquordeliverysk.ca',
       'image.shutterstock.com',
       'imgur.com',
+      'cdn.myoutfits.biz',
+      'www.comercialbenavides.net',
+      'cdn.britannica.com',
     ],
   },
 };
