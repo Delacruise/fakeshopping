@@ -9,6 +9,11 @@ const nextConfig = {
       'icons-store.com.mx',
       'placeimg.com',
       'm.media-amazon.com',
+      'www.dhresource.com',
+      'www.google.com',
+      'i.pinimg.com',
+      'liquordeliverysk.ca',
+      'image.shutterstock.com',
     ],
   },
 };
