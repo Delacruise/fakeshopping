@@ -20,21 +20,6 @@ export default function Products() {
   const categoryName = parts[1];
 
   const fetchData = async () => {
-<<<<<<< HEAD
-    try {
-      const productsRes = await GetProducts();
-      if (productsRes) {    
-        setLoading(true);
-        if (categoryName) {
-          var filterProds = productsRes.filter(
-            (product) => product.category.name === categoryName
-          );
-          setProductsData(filterProds);
-          setProductsCount(filterProds.length);
-        } else {
-          setProductsData(productsRes);
-        }
-=======
     if (localProdData) {
       setLoading(true);
       if (categoryName) {
@@ -45,7 +30,6 @@ export default function Products() {
         setProductsCount(filterProds.length);
       } else {
         setProductsData(localProdData);
->>>>>>> b8cfb26a0318945166a803ad0352da0a200fc0cd
       }
     }
   };
@@ -56,7 +40,7 @@ export default function Products() {
     }
   });
 
-  if (productsData != undefined ) {
+  if (productsData != undefined) {
     return (
       <div className='pageContainer flex gap-4'>
         <div className='leftCol '>

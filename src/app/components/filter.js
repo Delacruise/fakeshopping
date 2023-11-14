@@ -9,6 +9,29 @@ export default function Filter(data) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
 
+  function range() {
+    return {
+      minprice: 1000,
+      maxprice: 7000,
+      min: 100,
+      max: 10000,
+      minthumb: 0,
+      maxthumb: 0,
+
+      mintrigger() {
+        this.minprice = Math.min(this.minprice, this.maxprice - 500);
+        this.minthumb =
+          ((this.minprice - this.min) / (this.max - this.min)) * 100;
+      },
+
+      maxtrigger() {
+        this.maxprice = Math.max(this.maxprice, this.minprice + 500);
+        this.maxthumb =
+          100 - ((this.maxprice - this.min) / (this.max - this.min)) * 100;
+      },
+    };
+  }
+
   function getMinMaxPrice(products) {
     if (products.length === 0) {
       return { minPrice: 0, maxPrice: 0 };
@@ -46,16 +69,17 @@ export default function Filter(data) {
   if (productsData != undefined) {
     return (
       <>
-        <div className='blockTitle'>Filter</div>
+        <div className='blockTitle'>Price Filter</div>
         <div className='priceFilter'>
-          <div className='min'>
-            <div>$</div> <div>{minPrice}</div>
+          <div className='filterHeader'>
+            <div>The lowest priced item ${minPrice}</div>
+            <div>The highest priced item ${maxPrice}</div>
           </div>
-          <div className='slider'>
-            <div className='line'></div>
-          </div>
-          <div className='max'>
-            <div>$</div> <div>{maxPrice}</div>
+          <div className='filter'>
+            <span className='pr-1'>$</span>
+            <input className='priceFilterInput' placeholder='From' />
+            <span className='pl-2 pr-1'>$</span>
+            <input className='priceFilterInput' placeholder='To' />
           </div>
         </div>
       </>

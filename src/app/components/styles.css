@@ -69,13 +69,17 @@
 
 /* PRODUCTS FILTER */
 .priceFilter {
-  @apply bg-white flex gap-4 w-full items-center
+  @apply bg-white w-full items-center
 }
 
-.max,.min {
-@apply flex gap-1;
+.filterHeader {
+@apply pb-3 border-b;
 }
 
-.slider {@apply  w-full;}
+.filter {
+@apply pt-3 pb-4 flex items-center;
+}
 
-.line {@apply w-full border-t-2 border-b-2 p-0}
+.priceFilterInput {
+  @apply p-1 border rounded-lg border-gray-200 w-2/4;
+}
