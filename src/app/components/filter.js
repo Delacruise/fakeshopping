@@ -36,7 +36,6 @@ export default function Filter() {
       const productsRes = await GetProducts();
       if (productsRes) {
         setProductsData(productsRes);
-        setProductsCount(productsRes.length);
         getMinMaxPrice(productsRes);
         setLoading(true);
       }

@@ -1,38 +1,21 @@
 'use client';
 import Image from 'next/image';
-import GetCategories from '../api/getCategories/route';
 import { useState, useEffect } from 'react';
 
 export default function CategorySlider() {
-
   const [loading, setLoading] = useState(false);
-  const [categoriesData, setCategoriesData] = useState();
-
-  const fetchData = async () => {
-    try {
-      const categoriesRes = await GetCategories();
-      if (categoriesRes) {
-        setCategoriesData(categoriesRes);
-        setLoading(true);
-      }
-    } catch (error) {
-      console.error('Error CATEGORIES DATA fetching data:', error);
-      return false;
-    }
-  };
+  const localCatData = JSON.parse(localStorage.getItem('localCatData'));
 
   useEffect(() => {
-    if (!loading && categoriesData == undefined) {
-      fetchData();
-    }
+
   });
 
-  if (categoriesData != undefined) {
+  if (localCatData != undefined) {
     return (
       <>
         <h1 className='sliderTitle '>Categories</h1>
         <div className='sliderRow'>
-          {categoriesData.map((category) => (
+          {localCatData.map((category) => (
             <a href={`/pages/products?category=${category.name}`}>
               <div className='cardSlider'>
                 <Image
