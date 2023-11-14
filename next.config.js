@@ -14,6 +14,7 @@ const nextConfig = {
       'i.pinimg.com',
       'liquordeliverysk.ca',
       'image.shutterstock.com',
+      'imgur.com',
     ],
   },
 };

@@ -12,6 +12,12 @@ export default function Products() {
   const [productsCount, setProductsCount] = useState(0);
   const [loading, setLoading] = useState(false);
 
+  var queryString = window.location.search;
+  var urlParams = new URLSearchParams(queryString);
+  var paramCategory = urlParams.toString();
+  var parts = paramCategory.split('=');
+  const productName = parts[1];
+
   const fetchData = async () => {
     try {
       const productsRes = await GetProducts();
@@ -40,7 +46,7 @@ export default function Products() {
             <Filter />
           </div>
           <div className='containerBlocks'>
-            <Categories />
+            <Categories category={productName} />
           </div>
         </div>
         <div className='rightCol'>

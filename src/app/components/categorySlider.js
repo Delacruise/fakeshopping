@@ -33,7 +33,7 @@ export default function CategorySlider() {
         <h1 className='sliderTitle '>Categories</h1>
         <div className='sliderRow'>
           {categoriesData.map((category) => (
-            <a href='/pages/products'>
+            <a href={`/pages/products?category=${category.name}`}>
               <div className='cardSlider'>
                 <Image
                   src={category.image}
