@@ -1,0 +1,12 @@
+.leftCol {
+  @apply w-96 min-h-screen;
+}
+
+.rightCol {
+  @apply w-full min-h-screen;
+}
+
+
+.productsGrid{
+    @apply flex gap-4 justify-evenly flex-wrap ;
+}
