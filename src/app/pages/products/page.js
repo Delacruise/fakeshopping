@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import GetProducts from '../../api/getProducts/route';
 import Filter from '../../components/filter';
 import SearchBar from '../../components/SearchBar';
 import Categories from '../../components/productCategories';
@@ -12,6 +11,8 @@ export default function Products() {
   const [productsCount, setProductsCount] = useState(0);
   const [loading, setLoading] = useState(false);
 
+  const localProdData = JSON.parse(localStorage.getItem('localProdData'));
+
   var queryString = window.location.search;
   var urlParams = new URLSearchParams(queryString);
   var paramCategory = urlParams.toString();
@@ -19,6 +20,7 @@ export default function Products() {
   const categoryName = parts[1];
 
   const fetchData = async () => {
+<<<<<<< HEAD
     try {
       const productsRes = await GetProducts();
       if (productsRes) {    
@@ -32,10 +34,19 @@ export default function Products() {
         } else {
           setProductsData(productsRes);
         }
+=======
+    if (localProdData) {
+      setLoading(true);
+      if (categoryName) {
+        var filterProds = localProdData.filter(
+          (product) => product.category.name === categoryName
+        );
+        setProductsData(filterProds);
+        setProductsCount(filterProds.length);
+      } else {
+        setProductsData(localProdData);
+>>>>>>> b8cfb26a0318945166a803ad0352da0a200fc0cd
       }
-    } catch (error) {
-      console.error('Error PRODUCTS DATA fetching data:', error);
-      return false;
     }
   };
 

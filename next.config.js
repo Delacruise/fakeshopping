@@ -18,8 +18,12 @@ const nextConfig = {
       'cdn.myoutfits.biz',
       'www.comercialbenavides.net',
       'cdn.britannica.com',
+<<<<<<< HEAD
       'www.pixelstalk.net',
       'wallpapercave.com',
+=======
+      'img.freepik.com',
+>>>>>>> b8cfb26a0318945166a803ad0352da0a200fc0cd
     ],
   },
 };
