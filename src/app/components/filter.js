@@ -53,7 +53,7 @@ export default function Filter(data) {
       queryParams.to = toPrice;
     }
 
-    function updateUrlParams(params) {
+    const updateUrlParams = (params) => {
       let currentUrl = window.location.href;
       const urlObj = new URL(currentUrl);
       const urlSearchParams = urlObj.searchParams;
@@ -67,7 +67,7 @@ export default function Filter(data) {
       }
 
       return urlObj.toString();
-    }
+    };
 
     const newURL = updateUrlParams({
       priceFrom: queryParams.from,

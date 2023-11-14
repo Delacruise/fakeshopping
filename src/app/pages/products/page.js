@@ -18,6 +18,7 @@ export default function Products() {
   const categoryName = urlSearchParams.get('category');
   const priceLow = urlSearchParams.get('priceFrom');
   const priceHigh = urlSearchParams.get('priceTo');
+  const SQ = urlSearchParams.get('searchQ');
 
   const fetchData = async () => {
     if (localProdData) {
@@ -39,6 +40,16 @@ export default function Products() {
           );
         }
       }
+
+      if (SQ) {
+        const searchQuery = SQ.toLowerCase();
+        filteredProds = filteredProds.filter(
+          (product) =>
+            product.category.name.toLowerCase().includes(searchQuery) ||
+            product.title.toLowerCase().includes(searchQuery)
+        );
+      }
+      
       setProductsData(filteredProds);
       setProductsCount(filteredProds.length);
     }
