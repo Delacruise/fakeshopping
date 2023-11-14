@@ -21,6 +21,8 @@ const nextConfig = {
       'www.pixelstalk.net',
       'wallpapercave.com',
       'img.freepik.com',
+      'media.istockphoto.com',
+      'cdn.pixabay.com',
     ],
   },
 };

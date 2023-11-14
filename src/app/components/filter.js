@@ -1,36 +1,15 @@
 'use client';
-import GetProducts from '../api/getProducts/route';
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 export default function Filter(data) {
   const [loading, setLoading] = useState(false);
   const [productsData, setProductsData] = useState();
-  const [productsCount, setProductsCount] = useState();
+  const [fromPrice, setFromPrice] = useState('');
+  const [toPrice, setToPrice] = useState('');
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
-
-  function range() {
-    return {
-      minprice: 1000,
-      maxprice: 7000,
-      min: 100,
-      max: 10000,
-      minthumb: 0,
-      maxthumb: 0,
-
-      mintrigger() {
-        this.minprice = Math.min(this.minprice, this.maxprice - 500);
-        this.minthumb =
-          ((this.minprice - this.min) / (this.max - this.min)) * 100;
-      },
-
-      maxtrigger() {
-        this.maxprice = Math.max(this.maxprice, this.minprice + 500);
-        this.maxthumb =
-          100 - ((this.maxprice - this.min) / (this.max - this.min)) * 100;
-      },
-    };
-  }
+  const router = useRouter();
 
   function getMinMaxPrice(products) {
     if (products.length === 0) {
@@ -60,6 +39,45 @@ export default function Filter(data) {
     setLoading(true);
   };
 
+  const updateFilter = () => {
+    const queryParams = {};
+    if (fromPrice == '') {
+      queryParams.from = minPrice;
+    } else {
+      queryParams.from = fromPrice;
+    }
+
+    if (toPrice == '') {
+      queryParams.to = maxPrice;
+    } else {
+      queryParams.to = toPrice;
+    }
+
+    function updateUrlParams(params) {
+      let currentUrl = window.location.href;
+      const urlObj = new URL(currentUrl);
+      const urlSearchParams = urlObj.searchParams;
+
+      for (const [key, value] of Object.entries(params)) {
+        if (urlSearchParams.has(key)) {
+          urlSearchParams.set(key, value);
+        } else {
+          urlSearchParams.append(key, value);
+        }
+      }
+
+      return urlObj.toString();
+    }
+
+    const newURL = updateUrlParams({
+      priceFrom: queryParams.from,
+      priceTo: queryParams.to,
+    });
+
+    router.push(newURL);
+    location.replace(newURL);
+  };
+
   useEffect(() => {
     if (!loading && productsData == undefined) {
       fetchData();
@@ -77,10 +95,27 @@ export default function Filter(data) {
           </div>
           <div className='filter'>
             <span className='pr-1'>$</span>
-            <input className='priceFilterInput' placeholder='From' />
+            <input
+              id='from'
+              className='priceFilterInput'
+              defaultValue={minPrice}
+              value={fromPrice}
+              onChange={(e) => setFromPrice(e.target.value)}
+              placeholder={minPrice}
+            />
             <span className='pl-2 pr-1'>$</span>
-            <input className='priceFilterInput' placeholder='To' />
+            <input
+              id='to'
+              className='priceFilterInput'
+              defaultValue={maxPrice}
+              value={toPrice}
+              onChange={(e) => setToPrice(e.target.value)}
+              placeholder={maxPrice}
+            />
           </div>
+          <button className='filterButton' onClick={updateFilter}>
+            Filter
+          </button>
         </div>
       </>
     );

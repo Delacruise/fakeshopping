@@ -13,24 +13,34 @@ export default function Products() {
 
   const localProdData = JSON.parse(localStorage.getItem('localProdData'));
 
-  var queryString = window.location.search;
-  var urlParams = new URLSearchParams(queryString);
-  var paramCategory = urlParams.toString();
-  var parts = paramCategory.split('=');
-  const categoryName = parts[1];
+  const urlParams = window.location.search;
+  const urlSearchParams = new URLSearchParams(urlParams);
+  const categoryName = urlSearchParams.get('category');
+  const priceLow = urlSearchParams.get('priceFrom');
+  const priceHigh = urlSearchParams.get('priceTo');
 
   const fetchData = async () => {
     if (localProdData) {
       setLoading(true);
-      if (categoryName) {
-        var filterProds = localProdData.filter(
+      let filteredProds = localProdData;
+      if (categoryName && categoryName !== 'All') {
+        filteredProds = filteredProds.filter(
           (product) => product.category.name === categoryName
         );
-        setProductsData(filterProds);
-        setProductsCount(filterProds.length);
-      } else {
-        setProductsData(localProdData);
       }
+
+      if (priceLow !== null && priceHigh !== null) {
+        const low = parseFloat(priceLow);
+        const high = parseFloat(priceHigh);
+
+        if (!isNaN(low) && !isNaN(high)) {
+          filteredProds = filteredProds.filter(
+            (product) => product.price >= low && product.price <= high
+          );
+        }
+      }
+      setProductsData(filteredProds);
+      setProductsCount(filteredProds.length);
     }
   };
 
@@ -64,7 +74,10 @@ export default function Products() {
                 {productsCount} products matched
                 <div className='productsGrid'>
                   {productsData.map((product) => (
-                    <a href={`/pages/productDetail?id=${product.id}`}>
+                    <a
+                      href={`/pages/productDetail?id=${product.id}`}
+                      key={product.id}
+                    >
                       <div className='cardSlider '>
                         <div className='overflow-hidden'>
                           <Image

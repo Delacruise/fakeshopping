@@ -35,7 +35,6 @@ export default function ProductCategories(catName) {
   const handleCheckboxChange = (categoryName) => {
     setSelectedCategory(categoryName);
     router.push('/pages/products?category=' + categoryName);
-
     location.replace(`/pages/products?category=${categoryName}`);
   };
 
@@ -43,6 +42,15 @@ export default function ProductCategories(catName) {
     return (
       <>
         <div className='blockTitle'>categories</div>
+        <div className='flex gap-2 mb-2 content-center hover:text-indigo-300'>
+          <input
+            type='checkbox'
+            className='cursor-pointer'
+            checked={selectedCategory === 'All'}
+            onChange={() => handleCheckboxChange('All')}
+          />
+          <label className='cursor-pointer'>All</label>
+        </div>
         {categoriesData.map((category) => (
           <div
             key={category.id}
