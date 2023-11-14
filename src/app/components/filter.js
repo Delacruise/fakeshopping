@@ -2,7 +2,7 @@
 import GetProducts from '../api/getProducts/route';
 import { useState, useEffect } from 'react';
 
-export default function Filter() {
+export default function Filter(data) {
   const [loading, setLoading] = useState(false);
   const [productsData, setProductsData] = useState();
   const [productsCount, setProductsCount] = useState();
@@ -32,18 +32,9 @@ export default function Filter() {
   }
 
   const fetchData = async () => {
-    try {
-      const productsRes = await GetProducts();
-      if (productsRes) {
-        setProductsData(productsRes);
-        setProductsCount(productsRes.length);
-        getMinMaxPrice(productsRes);
-        setLoading(true);
-      }
-    } catch (error) {
-      console.error('Error PRODUCTS DATA fetching data:', error);
-      return false;
-    }
+    getMinMaxPrice(data.products);
+    setProductsData(data.products);
+    setLoading(true);
   };
 
   useEffect(() => {

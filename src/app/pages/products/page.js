@@ -10,7 +10,6 @@ import Categories from '../../components/productCategories';
 export default function Products() {
   const [productsData, setProductsData] = useState();
   const [productsCount, setProductsCount] = useState(0);
-  const [filteredProducts, setFilteredProducts] = useState();
   const [loading, setLoading] = useState(false);
 
   var queryString = window.location.search;
@@ -32,7 +31,6 @@ export default function Products() {
           setProductsCount(filterProds.length);
         } else {
           setProductsData(productsRes);
-          //setProductsCount(productsRes.length);
         }
       }
     } catch (error) {
@@ -52,7 +50,7 @@ export default function Products() {
       <div className='pageContainer flex gap-4'>
         <div className='leftCol '>
           <div className='containerBlocks'>
-            <Filter />
+            <Filter products={productsData} />
           </div>
           <div className='containerBlocks'>
             <Categories category={categoryName} />

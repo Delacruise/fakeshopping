@@ -18,6 +18,8 @@ const nextConfig = {
       'cdn.myoutfits.biz',
       'www.comercialbenavides.net',
       'cdn.britannica.com',
+      'www.pixelstalk.net',
+      'wallpapercave.com',
     ],
   },
 };
