@@ -1,6 +1,6 @@
 /* NAVIGATION */
 .navContainer {
-  @apply flex w-full p-4 text-center text-white text-3xl mb-4;
+  @apply flex w-full p-4 text-center text-white text-3xl;
 }
 
 .menuItem {
@@ -86,4 +86,40 @@
 
 .filterButton{
   @apply bg-green-600 p-2 w-full text-white font-semibold rounded-md hover:bg-green-500;
+}
+
+/* PAGE FILLERS */
+.pageFillerContainer {
+@apply w-full p-4 mb-4 mt-4 flex justify-around;
+}
+
+.fillerCol{
+  @apply p-4 flex justify-items-center items-center text-gray-400;
+}
+
+.fillerItemIcon {
+  @apply pr-4;
+  color:#ff7e02
+}
+
+.fillerItemTitle {@apply text-gray-600 font-bold text-2xl}
+
+.fillerItemText {@apply text-base}
+
+.pageFillerLeftCol {
+  @apply w-1/4 text-gray-600 font-bold text-2xl mr-4;
+  
+}
+
+.pageFillerRightCol {
+  @apply w-3/4 ;
+}
+
+.LeftColHeader {
+
+}
+
+.askHelp {
+  @apply mt-4 text-xl font-semibold uppercase flex gap-4 items-center cursor-pointer;
+  color:#ff7e02;
 }

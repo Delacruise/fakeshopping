@@ -2,6 +2,8 @@
 import CategorySlider from './components/categorySlider';
 import GetProducts from '../app/api/getProducts/route';
 import GetCategories from '../app/api/getCategories/route';
+import PageFiller from '../app/components/pageFiller';
+import PageFiller2 from '../app/components/pageFiller2';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
@@ -42,12 +44,10 @@ export default function Home() {
   if (loading && productsData !== undefined && categoriesData !== undefined) {
     return (
       <main className='min-h-screen'>
-        <div className='heroBanner w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
-          Hero Banner
+        <div className='heroBanner w-full flex justify-center  text-center text-white text-3xl '>
+          <img src='banner.jpg' alt='hero banner' className='rounded-3xl' />
         </div>
-        <div className='pageFiller w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
-          Page Filler
-        </div>
+        <PageFiller />
         <div className='productCategory w-full p-4 mb-4'>
           <CategorySlider data={categoriesData} />
         </div>
@@ -55,9 +55,7 @@ export default function Home() {
         {/* <div className='featuredProducts w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
         Featured Categories
       </div> */}
-        <div className='pageFiller w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
-          Page Filler
-        </div>
+        <PageFiller2 />
         <div className='pageFiller w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
           Page Filler
         </div>

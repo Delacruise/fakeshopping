@@ -30,7 +30,7 @@ export default function Navigation() {
     <div className='navContainer '>
       <nav className='flex items-center w-full'>
         <a href='/' className='p-2 mr-4 inline-flex items-center'>
-          <Image src='/logo.png' alt='Logo' width={50} height={50} />
+          <Image src='/image 9.png' alt='Logo' width={200} height={50} />
         </a>
         <button
           className='text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler'
