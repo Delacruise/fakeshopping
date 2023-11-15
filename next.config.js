@@ -27,6 +27,9 @@ const nextConfig = {
       'cdn.shopify.com',
       'upload.wikimedia.org',
       'cloudflare-ipfs.com',
+      'picsum.photos',
+      'static-cse.canva.com',
+      'api.escuelajs.co',
     ],
   },
 };

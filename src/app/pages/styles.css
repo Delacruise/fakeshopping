@@ -6,6 +6,7 @@
 @import '../pages/cart/styles.css';
 @import '../pages/404/styles.css';
 @import '../pages/login/styles.css';
+@import '../pages/account/styles.css';
 
 .pageContainer {
   @apply border-t border-b p-4 bg-gray-100 border-gray-300;

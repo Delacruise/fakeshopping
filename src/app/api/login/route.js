@@ -7,8 +7,7 @@ export default async function GET(loginCred) {
   const profileUrl = 'https://api.escuelajs.co/api/v1/auth/profile';
   const url2 = 'https://corsproxy.io/?' + encodeURIComponent(profileUrl);
 
-  try {debugger
-    // const response = await axios.post(url);
+  try {
     const response = await axios({
       method: 'post',
       url: url,

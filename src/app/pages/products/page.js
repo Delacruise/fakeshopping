@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Filter from '../../components/filter';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../components/searchbar';
 import Categories from '../../components/productCategories';
 
 export default function Products() {

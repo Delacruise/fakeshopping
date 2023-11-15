@@ -1,0 +1,29 @@
+.accountBgCounter {
+  @apply flex items-center justify-center h-screen text-gray-600;
+}
+
+.accountContainer {
+  background-color: #ff7e02;
+  @apply p-10 rounded-lg shadow-2xl relative -top-20  ;
+}
+
+.imgFrame {
+  @apply rounded-lg bg-white mb-6 p-1 -mt-16 shadow-lg w-40 border border-gray-200 bg-opacity-90 w-1/2;
+}
+
+.avatar {
+  @apply text-center w-full  rounded-lg;
+}
+
+.userInfo {
+  @apply text-white w-1/2 text-lg;
+}
+
+.accountTitle {
+    @apply font-bold text-3xl -mt-16 uppercase rounded-lg p-1 border border-gray-200 text-gray-600 bg-white text-center mb-2 bg-opacity-90;
+}
+
+.logoutButton {
+    @apply mt-4 text-center uppercase font-semibold text-white bg-white w-full pt-2 pb-2 rounded-lg hover:bg-opacity-90;
+    color:#ff7e02;
+}
