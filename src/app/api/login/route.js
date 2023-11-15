@@ -4,7 +4,10 @@ export default async function GET(loginCred) {
   const loginPageUrl = 'https://api.escuelajs.co/api/v1/auth/login';
   const url = 'https://corsproxy.io/?' + encodeURIComponent(loginPageUrl);
 
-  try {
+  const profileUrl = 'https://api.escuelajs.co/api/v1/auth/profile';
+  const url2 = 'https://corsproxy.io/?' + encodeURIComponent(profileUrl);
+
+  try {debugger
     // const response = await axios.post(url);
     const response = await axios({
       method: 'post',
@@ -14,10 +17,18 @@ export default async function GET(loginCred) {
         password: loginCred.password,
       },
     });
-    const loginRes = response.data;
-    if (loginRes) {
-      console.log('LOGIN PAGE API CALL: ', loginRes);
-      return loginRes;
+
+    const tokenRes = response.data;
+    if (tokenRes) {
+      const profileRes = await axios({
+        method: 'get',
+        url: url2,
+        headers: { Authorization: `Bearer ${tokenRes.access_token}` },
+      });
+
+      if(profileRes) {
+        return profileRes;
+      } 
     }
   } catch (error) {
     console.log('WE HAVE AN ERROR : ', error);

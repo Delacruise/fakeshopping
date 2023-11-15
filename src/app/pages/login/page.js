@@ -38,7 +38,8 @@ export default function Login() {
       });
       if (loginRes.status != 500) {
         setLoggedIn(loginRes);
-        localStorage.setItem('isLoggedIn', JSON.stringify(loginRes));
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('user', JSON.stringify(loginRes.data));
         console.log('LOGIN SUCCESS!');
         setHideSection(true);
         setLoginRedirect(true);

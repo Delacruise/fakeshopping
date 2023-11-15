@@ -26,6 +26,7 @@ const nextConfig = {
       'e7.pngegg.com',
       'cdn.shopify.com',
       'upload.wikimedia.org',
+      'cloudflare-ipfs.com',
     ],
   },
 };
