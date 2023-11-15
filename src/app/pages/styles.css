@@ -5,19 +5,21 @@
 @import '../pages/checkout/styles.css';
 @import '../pages/cart/styles.css';
 @import '../pages/404/styles.css';
+@import '../pages/login/styles.css';
 
-.pageContainer{
-    @apply border-t border-b p-4 bg-gray-100 border-gray-300;
+.pageContainer {
+  @apply border-t border-b p-4 bg-gray-100 border-gray-300;
 }
 
 .containerBlocks {
-    @apply bg-white p-4 rounded-lg mb-4
+  @apply bg-white p-4 rounded-lg mb-4;
 }
 
 .blockTitle {
-    @apply text-gray-500 font-semibold tracking-widest text-2xl mb-8 uppercase;
+  @apply text-gray-500 font-semibold tracking-widest text-2xl mb-8 uppercase;
 }
 
-textarea:focus, input:focus{
-    outline: none;
+textarea:focus,
+input:focus {
+  outline: none;
 }

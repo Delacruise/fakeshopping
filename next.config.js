@@ -23,6 +23,8 @@ const nextConfig = {
       'img.freepik.com',
       'media.istockphoto.com',
       'cdn.pixabay.com',
+      'e7.pngegg.com',
+      'cdn.shopify.com',
     ],
   },
 };
