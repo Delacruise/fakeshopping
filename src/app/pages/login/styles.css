@@ -1,6 +1,6 @@
 .bgContainer {
   background-color: #ff7e02;
-  @apply flex items-center justify-center h-screen;
+  @apply flex items-center justify-center h-screen text-gray-600;
 }
 
 .loginContainer {
@@ -29,7 +29,7 @@
 }
 
 .inputField {
-  @apply w-full border rounded-lg rounded-l-none pl-2;
+  @apply w-full border rounded-lg rounded-l-none pl-2 text-gray-500;
 }
 
 .rememberRow {
@@ -41,7 +41,7 @@
 }
 
 .chkbx {
-@apply mr-2;
+  @apply mr-2;
 }
 
 .Remember {
@@ -52,8 +52,8 @@
 }
 
 .smallLink:hover {
-    color:#ff7e02;
-} 
+  color: #ff7e02;
+}
 
 .formButton {
   @apply w-full flex items-center justify-center items-center justify-center;
@@ -62,4 +62,61 @@
 .loginButton {
   background-color: #ff7e02;
   @apply text-white p-2 pl-6 pr-6 uppercase font-semibold rounded-lg mx-auto mt-8 text-base;
+}
+
+.loginRedirect {
+}
+
+.loginErrors {
+  @apply p-4 bg-red-300 mb-4 rounded border border-red-500 flex;
+}
+
+.errorMessage {
+  @apply text-white text-center w-full text-red-600;
+}
+
+.errorTitle {
+  @apply text-red-600 font-bold uppercase text-lg;
+}
+
+.proTip {
+  @apply p-4 bg-yellow-300 mb-4 rounded border border-yellow-500 flex-nowrap;
+}
+
+.proTipTitle {
+  @apply text-yellow-600 font-bold uppercase text-lg text-center;
+}
+
+.proTipMessage {
+  @apply text-white text-center w-full text-yellow-600;
+}
+
+.proTipLink {
+  @apply text-white text-center w-full text-white uppercase cursor-pointer mt-2 bg-yellow-500 p-1 rounded hover:bg-yellow-600;
+}
+
+.errorIcon {
+  @apply p-2 text-white rounded-lg rounded-r-none bg-red-600;
+}
+
+.errorBorder {
+  @apply w-full border rounded-lg rounded-l-none pl-2 border-red-700 bg-red-100;
+}
+
+.loginRedirect {
+  @apply w-96 bg-white p-10 rounded-lg flex-nowrap shadow-2xl;
+}
+
+.loginRedirectTitle {
+color:#404040;
+@apply text-2xl font-bold uppercase m-4
+}
+
+.loginRedirectMessage {
+
+}
+
+#timer {
+    color: #ff7e02;
+    @apply text-6xl mt-6 font-black;
 }

@@ -25,6 +25,7 @@ const nextConfig = {
       'cdn.pixabay.com',
       'e7.pngegg.com',
       'cdn.shopify.com',
+      'upload.wikimedia.org',
     ],
   },
 };
