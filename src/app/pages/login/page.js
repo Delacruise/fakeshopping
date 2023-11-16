@@ -81,8 +81,8 @@ export default function Login() {
               src='/logo.png'
               alt='logo'
               className='logoImg'
-              width='80'
-              height='80'
+              width='120'
+              height='120'
             />
           </div>
           <div className={`loginErrors ${hideSection ? 'hidden' : 'block'} `}>
@@ -176,6 +176,9 @@ export default function Login() {
               className='logoImg'
               width='80'
               height='80'
+              onError={(e) => {
+                e.target.src = '/default.jpg';
+              }}
             />
             <h2 className='loginRedirectTitle'>Login Success</h2>
             <div className='loginRedirectMessage'>

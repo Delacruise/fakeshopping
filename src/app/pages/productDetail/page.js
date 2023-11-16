@@ -60,12 +60,15 @@ export default function ProductDetail() {
       <div className='pageContainer'>
         <div className='productContainer'>
           <div>
-            <Image
+            <img
               src={productData.images[0]}
               alt={productData.title}
               width={500}
               height={500}
               className='productImage'
+              onError={(e) => {
+                e.target.src = '/default.jpg';
+              }}
             />
           </div>
           <div className='productInfo'>

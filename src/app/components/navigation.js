@@ -1,36 +1,54 @@
-'use client'
+'use client';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 export default function Navigation() {
-    const checkActiveMenu = () => {
-        var pathName = window.location.pathname;
-        if (pathName.includes('product')) {
-          return 'products';
-        }
 
-        if (pathName.includes('contact')) {
-          return 'contact';
-        }
+  const pathName = window.location.pathname;
+  const [hideDiv, setHideDiv] = useState(false);
 
-        if (pathName.includes('account')) {
-          return 'account';
-        }
+  const checkActiveMenu = () => {
+    var pathName = window.location.pathname;
+    if (pathName.includes('product')) {
+      return 'products';
+    }
 
-        if (pathName.includes('cart') || pathName.includes('checkout')) {
-          return 'cart';
-        }
+    if (pathName.includes('contact')) {
+      return 'contact';
+    }
 
-        if (pathName.includes('/') ) {
-          return 'home';
-        }
-            
-    };
+    if (pathName.includes('account')) {
+      return 'account';
+    }
+
+    if (pathName.includes('cart') || pathName.includes('checkout')) {
+      return 'cart';
+    }
+
+    if (pathName.includes('/')) {
+      return 'home';
+    }
+  };
+
+  useEffect(() => {
+    if (pathName === '/pages/login') {
+      setHideDiv(true);
+    }
+  });
 
   return (
-    <div className='navContainer '>
+    <div className={`navContainer ${hideDiv ? 'hidden' : 'block'}`}>
       <nav className='flex items-center w-full'>
         <a href='/' className='p-2 mr-4 inline-flex items-center'>
-          <Image src='/image 9.png' alt='Logo' width={200} height={50} />
+          <img
+            src='/image 9.png'
+            alt='Logo'
+            width={200}
+            height={50}
+            onError={(e) => {
+              e.target.src = '/default.jpg';
+            }}
+          />
         </a>
         <button
           className='text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler'
@@ -39,7 +57,7 @@ export default function Navigation() {
           <i className='material-icons'>menu</i>
         </button>
         <div
-          className='hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto text-base'
+          className='hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto text-xl'
           id='navigation'
         >
           <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto gap-10'>

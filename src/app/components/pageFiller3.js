@@ -20,6 +20,9 @@ export default function PageFiller3() {
                 alt=''
                 width={80}
                 className='testimonialImg'
+                onError={(e) => {
+                  e.target.src = '/default.jpg';
+                }}
               />
             </div>
           </div>
@@ -35,6 +38,9 @@ export default function PageFiller3() {
               alt=''
               width={80}
               className='testimonialImg'
+              onError={(e) => {
+                e.target.src = '/default.jpg';
+              }}
             />
           </div>
           <div className='testimonialBlock testimonialBlockWhite'>
@@ -48,6 +54,9 @@ export default function PageFiller3() {
                 alt=''
                 width={80}
                 className='testimonialImg'
+                onError={(e) => {
+                  e.target.src = '/default.jpg';
+                }}
               />
             </div>
           </div>

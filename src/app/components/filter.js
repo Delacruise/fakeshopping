@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
-export default function Filter(data) {
+export default function  Filter(data) {
   const [loading, setLoading] = useState(false);
   const [productsData, setProductsData] = useState();
   const [fromPrice, setFromPrice] = useState('');
@@ -89,10 +89,6 @@ export default function Filter(data) {
       <>
         <div className='blockTitle'>Price Filter</div>
         <div className='priceFilter'>
-          <div className='filterHeader'>
-            <div>The lowest priced item ${minPrice}</div>
-            <div>The highest priced item ${maxPrice}</div>
-          </div>
           <div className='filter'>
             <span className='pr-1'>$</span>
             <input

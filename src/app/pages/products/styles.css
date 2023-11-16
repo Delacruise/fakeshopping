@@ -10,3 +10,11 @@
 .productsGrid{
     @apply flex gap-4 justify-evenly flex-wrap ;
 }
+
+.cardImage {
+  @apply object-cover h-64;
+}
+
+.resultsBanner {
+  @apply text-lg text-gray-500 mb-6;
+}

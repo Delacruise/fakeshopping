@@ -33,6 +33,9 @@ export default function Account() {
                 alt={userDisplay.name}
                 width={128}
                 height={128}
+                onError={(e) => {
+                  e.target.src = '/default.jpg';
+                }}
               />
             </div>
             <div className='userInfo'>

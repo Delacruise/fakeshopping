@@ -1,18 +1,19 @@
 /* NAVIGATION */
 .navContainer {
-  @apply flex w-full p-4 text-center text-white text-3xl;
+  @apply flex w-full p-4 text-center text-white  border-b-2 ;
 }
 
 .menuItem {
-  @apply text-gray-400 items-center justify-center hover:text-red-400 transition-colors duration-500;
+  @apply text-gray-400 items-center justify-center hover:text-red-400 transition-colors duration-500 text-lg font-semibold;
 }
 
 .active {
   @apply text-red-400;
 }
 
-/* NAVIGATION */
+/* FOOTER */
 .footerContainer {
+  @apply border-t-2 ;
 }
 
 .column {
@@ -24,7 +25,7 @@
 }
 
 .icon {
-  @apply bg-red-900 pt-1 pb-1 p-2  text-white rounded-md text-base;
+  @apply bg-red-900 pt-1 pb-1 p-2  text-white rounded-md text-xl;
 }
 
 .footerTitle {
@@ -42,7 +43,6 @@
 
 .sliderRow {
   @apply flex justify-between gap-4 flex-nowrap overflow-x-auto flex space-x-4;
-
 }
 
 /* Webkit (Chrome, Safari, etc.) scrollbar styling */
@@ -70,7 +70,7 @@
 }
 
 .cardTitle {
-  @apply rounded-lg rounded-b-none p-4 w-full text-gray-500 font-semibold text-base capitalize;
+  @apply rounded-lg rounded-b-none p-4 w-full text-gray-500 font-semibold text-xl capitalize;
 }
 
 /* SEARCH BAR */
@@ -79,11 +79,12 @@
 }
 
 .searchInput {
-  @apply border-0 w-full p-2 text-gray-600;
+  @apply border-0 w-full p-3 text-gray-500 text-lg;
 }
 
 .searchButton {
-  @apply border-0 text-white bg-green-600 p-2;
+  @apply border-0 text-white p-4;
+  background-color: #ff7e02;
 }
 
 /* PRODUCTS FILTER */
@@ -96,15 +97,46 @@
 }
 
 .filter {
-  @apply pt-3 pb-4 flex items-center;
+  @apply  pb-4 flex items-center text-gray-500;
 }
 
 .priceFilterInput {
-  @apply p-2 pt-1 pb-1 border rounded-lg border-gray-200 w-2/4;
+  @apply p-2 pt-2 pb-2 border text-lg rounded-lg border-gray-200 w-2/4;
 }
 
 .filterButton {
-  @apply bg-green-600 p-2 w-full text-white font-semibold rounded-md hover:bg-green-500;
+  background-color: #ff7e02;
+  @apply text-white p-2 pl-6 pr-6 uppercase  rounded-lg mx-auto mt-4 mb-4 w-full text-lg;
+}
+
+.checkbox-round {
+  width: 24px;
+  height: 25px;
+  background-color: white;
+  border-radius: 20%;
+  vertical-align: middle;
+  border: 1px solid orange;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-round:checked {
+  background-color: orange;
+}
+
+label {
+  cursor: pointer;
+  @apply text-lg text-gray-500;
+}
+
+label:hover {
+  color: orange;
+}
+
+.categoryItem {
+  @apply flex gap-4 mb-4 justify-items-center hover:text-indigo-300 items-center;
 }
 
 /* PAGE FILLERS */
@@ -126,7 +158,7 @@
 }
 
 .fillerItemText {
-  @apply text-base;
+  @apply text-xl;
 }
 
 .pageFillerLeftCol {
@@ -159,7 +191,7 @@
 }
 
 .pageFiller3SubTitle {
-  @apply text-center text-base text-gray-400 mb-6;
+  @apply text-center text-xl text-gray-400 mb-6;
 }
 
 .shortLine {
@@ -171,7 +203,7 @@
 }
 
 .testimonialBlock {
-  @apply p-10 pb-16 text-center text-base text-gray-400 rounded-xl w-72 shadow-lg relative border;
+  @apply p-10 pb-16 text-center text-xl text-gray-400 rounded-xl w-72 shadow-lg relative border;
 }
 
 .testimonialBlockOrange {
@@ -191,5 +223,5 @@
 }
 
 .testimonialBlockTitle {
-  @apply text-xl font-bold uppercase pb-2 text-gray-500
+  @apply text-xl font-bold uppercase pb-2 text-gray-500;
 }

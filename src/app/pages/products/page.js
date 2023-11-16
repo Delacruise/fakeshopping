@@ -6,6 +6,7 @@ import Filter from '../../components/filter';
 import SearchBar from '../../components/searchbar';
 import Categories from '../../components/productCategories';
 
+
 export default function Products() {
   const [productsData, setProductsData] = useState();
   const [productsCount, setProductsCount] = useState(0);
@@ -55,6 +56,11 @@ export default function Products() {
     }
   };
 
+  const imgError = (imgserc) => {
+    console.log('The image could not be loaded.', imgserc);
+    return '/logo.png';
+  }
+
   useEffect(() => {
     if (!loading && productsData == undefined) {
       fetchData();
@@ -63,7 +69,7 @@ export default function Products() {
 
   if (productsData != undefined) {
     return (
-      <div className='pageContainer flex gap-4'>
+      <div className='pageContainer flex gap-4 pt-8 pb-8'>
         <div className='leftCol '>
           <div className='containerBlocks'>
             <Filter products={productsData} />
@@ -79,10 +85,14 @@ export default function Products() {
           <div className='containerBlocks'>
             <div className='blockTitle'>Results</div>
             {productsCount == 0 ? (
-              <div className='no__Results'>No products available</div>
+              <div className='no__Results resultsBanner'>
+                No products available
+              </div>
             ) : (
               <div className='results__Found'>
-                {productsCount} products matched
+                <div className='resultsBanner'>
+                  {productsCount} products matched
+                </div>
                 <div className='productsGrid'>
                   {productsData.map((product) => (
                     <a
@@ -91,12 +101,15 @@ export default function Products() {
                     >
                       <div className='cardSlider '>
                         <div className='overflow-hidden'>
-                          <Image
+                          <img
                             src={product.images[0]}
                             alt={product.title}
                             width={256}
                             height={256}
                             className='cardImage'
+                            onError={(e) => {
+                              e.target.src = '/default.jpg';
+                            }}
                           />
                         </div>
                         <div className='cardTitle'>

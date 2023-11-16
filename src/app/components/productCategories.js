@@ -42,23 +42,20 @@ export default function ProductCategories(catName) {
     return (
       <>
         <div className='blockTitle'>categories</div>
-        <div className='flex gap-2 mb-2 content-center hover:text-indigo-300'>
+        <div className='categoryItem'>
           <input
             type='checkbox'
-            className='cursor-pointer'
+            className='checkbox-round'
             checked={selectedCategory === 'All'}
             onChange={() => handleCheckboxChange('All')}
           />
           <label className='cursor-pointer'>All</label>
         </div>
         {categoriesData.map((category) => (
-          <div
-            key={category.id}
-            className='flex gap-2 mb-2 content-center hover:text-indigo-300'
-          >
+          <div key={category.id} className='categoryItem '>
             <input
               type='checkbox'
-              className='cursor-pointer'
+              className='checkbox-round '
               checked={selectedCategory === category.name}
               onChange={() => handleCheckboxChange(category.name)}
             />

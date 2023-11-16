@@ -17,12 +17,15 @@ export default function CategorySlider() {
           {localCatData.map((category) => (
             <a href={`/pages/products?category=${category.name}`}>
               <div className='cardSlider'>
-                <Image
+                <img
                   src={category.image}
                   alt=''
                   height={256}
                   width={256}
-                  className='cardImage '
+                  className='cardImage'
+                  onError={(e) => {
+                    e.target.src = '/default.jpg';
+                  }}
                 />
                 <div className='cardTitle '>{category.name}</div>
               </div>

@@ -1,29 +1,40 @@
 .productContainer {
-    @apply bg-white p-4 flex gap-16;
+  @apply bg-white p-4 flex gap-16;
 }
 
 .productImage {
-    @apply rounded-2xl;
+  @apply rounded-2xl;
 }
 
-.productInfo {}
+.productInfo {
+}
 
-.categoryName {@apply text-gray-600 font-semibold uppercase mb-2}
+.categoryName {
+  @apply text-gray-600 font-semibold uppercase mb-2;
+}
 
-.productName {@apply text-gray-900 font-bold text-3xl pt-2 pb-4} 
+.productName {
+  @apply text-gray-900 font-bold text-3xl pt-2 pb-4;
+}
 
-.productPrice {@apply text-gray-900 font-bold text-2xl text-red-800 pb-4}
+.productPrice {
+  @apply text-gray-900 font-bold text-2xl text-red-800 pb-4;
+}
 
-.productDescription {@apply pb-4 text-base}
+.productDescription {
+  @apply pb-4 text-xl;
+}
 
-.cartButtonSection {@apply flex gap-4;}
+.cartButtonSection {
+  @apply flex gap-4;
+}
 
 .input {
-    @apply border p-3 rounded-lg text-center text-lg;
-    width: 50px
+  @apply border p-3 rounded-lg text-center text-lg;
+  width: 50px;
 }
 
 .buttonCart {
-    width:200px;
-    @apply p-3 text-center font-bold bg-red-900 text-white capitalize rounded-md hover:bg-red-700;
+  width: 200px;
+  @apply p-3 text-center font-bold bg-red-900 text-white capitalize rounded-md hover:bg-red-700;
 }

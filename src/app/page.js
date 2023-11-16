@@ -44,15 +44,29 @@ export default function Home() {
   });
   if (loading && productsData !== undefined && categoriesData !== undefined) {
     return (
-      <main className='min-h-screen'>
+      <main className='min-h-screen pt-8 pb-8'>
         <div className='heroBanner w-full flex justify-center  text-center text-white text-3xl '>
-          <img src='banner.jpg' alt='hero banner' className='rounded-3xl' />
+          <img
+            src='banner.jpg'
+            alt='hero banner'
+            className='rounded-3xl'
+            onError={(e) => {
+              e.target.src = '/default.jpg';
+            }}
+          />
         </div>
         <PageFiller />
         <CategorySlider data={categoriesData} />
         <PageFiller2 />
         <div className='banner2  containerSpacing'>
-          <img src='banner2.jpg' height={440} alt='hero banner' />
+          <img
+            src='banner2.jpg'
+            height={440}
+            alt='hero banner'
+            onError={(e) => {
+              e.target.src = '/default.jpg';
+            }}
+          />
         </div>
         <PageFiller3 />
       </main>
