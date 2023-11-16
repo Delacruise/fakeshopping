@@ -1,7 +1,7 @@
 export default function PageFiller2() {
   return (
     <>
-      <div className='pageFillerContainer'>
+      <div className='pageFillerContainer containerSpacing'>
         <div className='pageFillerLeftCol'>
           <div className='LeftColHeader'>
             Need help in choosing the right plants?

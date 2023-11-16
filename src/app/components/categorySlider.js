@@ -13,7 +13,7 @@ export default function CategorySlider() {
   if (localCatData != undefined) {
     return (
       <>
-        <div className='sliderRow'>
+        <div className='sliderRow containerSpacing'>
           {localCatData.map((category) => (
             <a href={`/pages/products?category=${category.name}`}>
               <div className='cardSlider'>

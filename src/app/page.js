@@ -4,6 +4,7 @@ import GetProducts from '../app/api/getProducts/route';
 import GetCategories from '../app/api/getCategories/route';
 import PageFiller from '../app/components/pageFiller';
 import PageFiller2 from '../app/components/pageFiller2';
+import PageFiller3 from '../app/components/pageFiller3';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
@@ -48,17 +49,12 @@ export default function Home() {
           <img src='banner.jpg' alt='hero banner' className='rounded-3xl' />
         </div>
         <PageFiller />
-        <div className='productCategory w-full p-4 mb-4'>
-          <CategorySlider data={categoriesData} />
-        </div>
-        {/* TODO: show random featured product categories */}
-        {/* <div className='featuredProducts w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
-        Featured Categories
-      </div> */}
+        <CategorySlider data={categoriesData} />
         <PageFiller2 />
-        <div className='pageFiller w-full h-96 bg-red-900 p-4 text-center text-white text-3xl mb-4'>
-          Page Filler
+        <div className='banner2  containerSpacing'>
+          <img src='banner2.jpg' height={440} alt='hero banner' />
         </div>
+        <PageFiller3 />
       </main>
     );
   } else {

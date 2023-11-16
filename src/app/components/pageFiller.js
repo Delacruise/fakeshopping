@@ -1,7 +1,7 @@
 export default function PageFiller() {
   return (
     <>
-      <div className='pageFillerContainer'>
+      <div className='pageFillerContainer containerSpacing'>
         <div className='fillerCol'>
           <div className='fillerItemIcon'>
             <svg

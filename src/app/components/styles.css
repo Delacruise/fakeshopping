@@ -15,7 +15,9 @@
 .footerContainer {
 }
 
-.column{ @apply w-1/4}
+.column {
+  @apply w-1/4;
+}
 
 .socialIcons {
   @apply flex gap-4 mt-4;
@@ -34,20 +36,37 @@
 }
 
 /* SLIDERS */
-.sliderTitle{
-@apply uppercase w-full text-gray-500 font-semibold tracking-widest text-3xl mb-8;
+.sliderTitle {
+  @apply uppercase w-full text-gray-500 font-semibold tracking-widest text-3xl mb-8;
 }
 
 .sliderRow {
   @apply flex justify-between gap-4 flex-nowrap overflow-x-auto flex space-x-4;
+
+}
+
+/* Webkit (Chrome, Safari, etc.) scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ff7e02; /* Color of the thumb */
+  border-radius: 6px; /* Border radius of the thumb */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #d3d3d3; /* Color of the track */
+  border-radius: 6px; /* Border radius of the track */
 }
 
 .cardSlider {
-@apply w-64 bg-gray-200 rounded-lg border border-gray-300 mb-4;
+  @apply w-64 bg-gray-200 rounded-lg border border-gray-300 mb-4;
 }
 
 .cardImage {
-@apply rounded-lg rounded-b-none max-h-64 max-w-xl;
+  @apply rounded-lg rounded-b-none max-h-64 max-w-xl;
 }
 
 .cardTitle {
@@ -56,70 +75,121 @@
 
 /* SEARCH BAR */
 .searchBar {
-  @apply w-full border rounded-lg border-gray-200 flex overflow-hidden
+  @apply w-full border rounded-lg border-gray-200 flex overflow-hidden;
 }
 
 .searchInput {
   @apply border-0 w-full p-2 text-gray-600;
 }
 
-.searchButton{
+.searchButton {
   @apply border-0 text-white bg-green-600 p-2;
 }
 
 /* PRODUCTS FILTER */
 .priceFilter {
-  @apply bg-white w-full items-center
+  @apply bg-white w-full items-center;
 }
 
 .filterHeader {
-@apply pb-3 border-b;
+  @apply pb-3 border-b;
 }
 
 .filter {
-@apply pt-3 pb-4 flex items-center;
+  @apply pt-3 pb-4 flex items-center;
 }
 
 .priceFilterInput {
   @apply p-2 pt-1 pb-1 border rounded-lg border-gray-200 w-2/4;
 }
 
-.filterButton{
+.filterButton {
   @apply bg-green-600 p-2 w-full text-white font-semibold rounded-md hover:bg-green-500;
 }
 
 /* PAGE FILLERS */
 .pageFillerContainer {
-@apply w-full p-4 mb-4 mt-4 flex justify-around;
+  @apply w-full p-4 flex justify-around;
 }
 
-.fillerCol{
+.fillerCol {
   @apply p-4 flex justify-items-center items-center text-gray-400;
 }
 
 .fillerItemIcon {
   @apply pr-4;
-  color:#ff7e02
+  color: #ff7e02;
 }
 
-.fillerItemTitle {@apply text-gray-600 font-bold text-2xl}
+.fillerItemTitle {
+  @apply text-gray-600 font-bold text-2xl;
+}
 
-.fillerItemText {@apply text-base}
+.fillerItemText {
+  @apply text-base;
+}
 
 .pageFillerLeftCol {
   @apply w-1/4 text-gray-600 font-bold text-2xl mr-4;
-  
 }
 
 .pageFillerRightCol {
-  @apply w-3/4 ;
+  @apply w-3/4;
 }
 
 .LeftColHeader {
-
 }
 
 .askHelp {
-  @apply mt-4 text-xl font-semibold uppercase flex gap-4 items-center cursor-pointer;
-  color:#ff7e02;
+  @apply text-xl font-semibold uppercase flex gap-4 items-center cursor-pointer pt-6;
+  color: #ff7e02;
+}
+
+.banner2 {
+  @apply flex justify-center w-full h-96 rounded-3xl;
+  background-color: #ffc300;
+}
+
+.pageFiller3Container {
+  @apply w-full relative;
+}
+
+.pageFiller3Title {
+  @apply text-center text-4xl text-gray-500 font-bold uppercase mb-4;
+}
+
+.pageFiller3SubTitle {
+  @apply text-center text-base text-gray-400 mb-6;
+}
+
+.shortLine {
+  @apply w-20 border-b border-gray-200 mx-auto mb-6;
+}
+
+.testimonialSection {
+  @apply items-center justify-center justify-around mb-16;
+}
+
+.testimonialBlock {
+  @apply p-10 pb-16 text-center text-base text-gray-400 rounded-xl w-72 shadow-lg relative border;
+}
+
+.testimonialBlockOrange {
+  background-color: #ff7e02;
+  color: #fff;
+}
+
+.testimonialBlockWhite {
+}
+
+.testimonialImg {
+  @apply rounded-full border-4 border-white absolute -bottom-10 left-1/2 transform -translate-x-1/2;
+}
+
+.testimonialBlockDriftDown {
+  @apply absolute bottom-[50px];
+}
+
+.testimonialBlockTitle {
+  @apply text-xl font-bold uppercase pb-2 text-gray-500
 }
