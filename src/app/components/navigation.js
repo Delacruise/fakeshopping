@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export default function Navigation() {
-
   const pathName = window.location.pathname;
   const [hideDiv, setHideDiv] = useState(false);
 
@@ -29,6 +28,13 @@ export default function Navigation() {
       return 'home';
     }
   };
+
+  //CHECK FOR CART
+  const cartItems = JSON.parse(localStorage.getItem('localCart'));
+  if (!cartItems) {
+    let cart = [];
+    localStorage.setItem('localCart', JSON.stringify(cart));
+  }
 
   useEffect(() => {
     if (pathName === '/pages/login') {
