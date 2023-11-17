@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Cart() {
   const cartArray = JSON.parse(localStorage.getItem('localCart')) || [];
@@ -7,6 +8,15 @@ export default function Cart() {
   const [vat, setVat] = useState(0);
   const [total, setTotal] = useState(0);
   const [vatPercentage, setVatPercentage] = useState(0.05);
+  const router = useRouter();
+
+  const deleteItem = (id) => {
+    debugger;
+    const newCart = cartArray.filter((item) => item.id !== id);
+    localStorage.setItem('localCart', JSON.stringify(newCart));
+    console.log('New Cart: ', newCart);
+    router.refresh();
+  };
 
   const addToCart = (item, qty) => {
     // localStorage.removeItem('localCart');
@@ -54,7 +64,6 @@ export default function Cart() {
   };
 
   const calcTotal = (vat, sTP) => {
-    debugger;
     let allPrice = vat + sTP;
     setTotal(parseFloat(allPrice.toFixed(2)));
   };
@@ -100,7 +109,12 @@ export default function Cart() {
                   value={cartItem.qty}
                 />
 
-                <button className='cartProductDel'>
+                <button
+                  className='cartProductDel'
+                  onClick={() => {
+                    deleteItem(cartItem.id);
+                  }}
+                >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     viewBox='0 0 24 24'
@@ -149,7 +163,15 @@ export default function Cart() {
       <>
         <div className='cartContainer'>
           <div className='cartTile'>Shopping Cart</div>
-          <div className='cartProductsContainer'>Your cart is empty.</div>
+          <div className='cartProductsContainer text-3xl text-center m-20'>
+            <img
+              src='/emptyCart.png'
+              alt='Empty Cart'
+              className='mx-auto my-auto'
+            />
+            Your cart is empty.
+          </div>
+
           <div className='cartTotalContainer'>
             <div className='cartTotalMessage'>5% is included on all totals</div>
             <div className='cartTotalVat'>
