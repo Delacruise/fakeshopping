@@ -69,17 +69,17 @@ export default function Products() {
 
   if (productsData != undefined) {
     return (
-      <div className='pageContainer flex gap-4 pt-8 pb-8'>
-        <div className='leftCol '>
-          <div className='containerBlocks'>
+      <div className='pageContainer flex gap-4 pt-8 pb-8 '>
+        <div className='leftCol h-full'>
+          <div className='containerBlocks '>
             <Filter products={productsData} />
           </div>
-          <div className='containerBlocks'>
+          <div className='containerBlocks '>
             <Categories category={categoryName} />
           </div>
         </div>
-        <div className='rightCol'>
-          <div className='containerBlocks'>
+        <div className='rightCol h-full'>
+          <div className='containerBlocks '>
             <SearchBar />
           </div>
           <div className='containerBlocks'>
@@ -90,7 +90,7 @@ export default function Products() {
               </div>
             ) : (
               <div className='results__Found'>
-                <div className='resultsBanner'>
+                <div className='resultsBanner '>
                   {productsCount} products matched
                 </div>
                 <div className='productsGrid'>

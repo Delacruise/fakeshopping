@@ -13,5 +13,5 @@ main {
   width: 1227px;
   margin-left: auto;
   margin-right: auto;
-  @apply text-lg text-gray-500;
+  @apply text-lg text-gray-500 min-h-screen;
 }

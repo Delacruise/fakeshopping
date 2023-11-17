@@ -78,7 +78,7 @@ export default function Navigation() {
               <span>Products</span>
             </a>
             <a
-              href='/pages/contact'
+              href='#'
               className={`menuItem ${
                 checkActiveMenu() === 'contact' ? 'active' : ''
               }`}

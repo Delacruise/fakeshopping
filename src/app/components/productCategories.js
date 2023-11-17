@@ -40,7 +40,7 @@ export default function ProductCategories(catName) {
 
   if (categoriesData !== undefined) {
     return (
-      <>
+      <div className=''>
         <div className='blockTitle'>categories</div>
         <div className='categoryItem'>
           <input
@@ -62,7 +62,7 @@ export default function ProductCategories(catName) {
             <label className='cursor-pointer'>{category.name}</label>
           </div>
         ))}
-      </>
+      </div>
     );
   }
 }

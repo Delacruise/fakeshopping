@@ -1,6 +1,6 @@
 /* NAVIGATION */
 .navContainer {
-  @apply flex w-full p-4 text-center text-white  border-b-2 ;
+  @apply flex w-full p-4 text-center text-white  border-b-2;
 }
 
 .menuItem {
@@ -13,27 +13,33 @@
 
 /* FOOTER */
 .footerContainer {
-  @apply border-t-2 ;
+  @apply border-t-2;
 }
 
 .column {
   @apply w-1/4;
 }
 
+.social-icon {
+  width: 40px !important;
+  height: 40px !important;
+  cursor: pointer;
+}
+
 .socialIcons {
-  @apply flex gap-4 mt-4;
+  @apply flex gap-2 mx-auto m-10 w-full justify-center;
 }
 
 .icon {
-  @apply bg-red-900 pt-1 pb-1 p-2  text-white rounded-md text-xl;
+  @apply text-white rounded-md text-xl;
 }
 
 .footerTitle {
-  @apply font-bold uppercase text-lg text-left mb-2 text-red-800;
+  @apply font-bold uppercase text-lg text-left mb-2 text-gray-600;
 }
 
 .footerLink {
-  @apply text-gray-400 font-normal text-lg text-left hover:text-red-400 transition-colors duration-500 cursor-pointer;
+  @apply text-gray-500 font-normal text-lg text-left hover:text-orange-600 transition-colors duration-500 cursor-pointer pb-2;
 }
 
 /* SLIDERS */
@@ -97,7 +103,7 @@
 }
 
 .filter {
-  @apply  pb-4 flex items-center text-gray-500;
+  @apply pb-4 flex items-center text-gray-500;
 }
 
 .priceFilterInput {
