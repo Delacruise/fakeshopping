@@ -72,6 +72,13 @@ export default function Home() {
       </main>
     );
   } else {
-    return <main className='min-h-screen'>Busy loading ...</main>;
+    return (
+      <div className='flex items-center justify-center h-screen'>
+        <div className='loading'>
+          <img src='/loading.gif' alt='Loading' />
+          <div className='text-center uppercase font-bold text-orange-600 text-4xl'>Loading...</div>
+        </div>
+      </div>
+    );
   }
 }
