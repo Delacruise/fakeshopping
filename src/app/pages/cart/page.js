@@ -4,11 +4,15 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function Cart() {
-  const cartArray = JSON.parse(localStorage.getItem('localCart')) || [];
+  const [cartArray, setCartArray] = useState(
+    JSON.parse(localStorage.getItem('localCart')) || []
+  );
   const [subTotal, setSubtotal] = useState(0);
   const [vat, setVat] = useState(0);
   const [total, setTotal] = useState(0);
   const [vatPercentage, setVatPercentage] = useState(0.05);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [hidePopup, setHidePopup] = useState(true);
   const router = useRouter();
 
   const deleteItem = (id) => {
@@ -18,27 +22,43 @@ export default function Cart() {
     router.refresh();
   };
 
-  const addToCart = (item, qty) => {
-    // localStorage.removeItem('localCart');
-    let cartItems = cartArray;
+  const goTo = () => {
+    router.push('/pages/products');
+    location.replace('/pages/products');
+  };
 
-    // Check if the item already exists in the cart
-    const existingItemIndex = cartItems.findIndex(
-      (cartItem) => cartItem.id === item.id
-    );
+  const finishProcess = () => {
+    localStorage.removeItem('localCart');
+    router.push('/');
+    location.replace('/');
+  };
 
-    if (existingItemIndex !== -1) {
-      // Item already exists, update the quantity
-      cartItems[existingItemIndex].qty += qty;
-    } else {
-      // Item doesn't exist, add it to the cart
-      cartItems.push({ ...item, qty });
+  const closePopup = () => {
+    setHidePopup(true);
+  };
+
+  const updateCart = (updateQty, updateId) => {
+    if (updateQty !== 0) {
+      const updatedCart = cartArray.map((product) => {
+        if (product.id === updateId) {
+          // If the product matches the updateId, update the qty
+          return {
+            ...product,
+            qty: parseInt(updateQty),
+          };
+        }
+        // If the product doesn't match the updateId, return it unchanged
+        return product;
+      });
+
+      // Update the cartArray with the modified cart
+      setCartArray(updatedCart);
+
+      // Update the local storage with the modified cart
+      localStorage.setItem('localCart', JSON.stringify(updatedCart));
+
+      router.refresh();
     }
-
-    // Update the local storage with the modified cartItems
-    localStorage.setItem('localCart', JSON.stringify(cartItems));
-
-    console.log('Cart Items: ', cartItems);
   };
 
   const calcVat = (stp) => {
@@ -68,6 +88,10 @@ export default function Cart() {
     setTotal(parseFloat(allPrice.toFixed(2)));
   };
 
+  const disableCheckOut = () => {
+    setIsButtonDisabled(true);
+  };
+
   useEffect(() => {
     if (cartArray !== undefined) {
       calcSubTotal();
@@ -91,9 +115,11 @@ export default function Cart() {
               <div className='cartProductRow'>
                 <div>
                   <img
-                    src={cartItem.qty}
+                    src={cartItem.images[0]}
                     alt={cartItem.title}
                     className='cartProductImg'
+                    width={128}
+                    height={128}
                     onError={(e) => {
                       e.target.src = '/default.jpg';
                     }}
@@ -112,8 +138,8 @@ export default function Cart() {
                 </div>
                 <input
                   className='cartProductQTY'
-                  placeholder='1'
-                  value={cartItem.qty}
+                  defaultValue={cartItem.qty}
+                  onChange={(e) => updateCart(e.target.value, cartItem.id)}
                 />
 
                 <button
@@ -156,10 +182,50 @@ export default function Cart() {
           </div>
           <div className='cartFooter'>
             <div className='cartNotes'></div>
-            <div className='cartButtons'>
-              <button className='cartCheckOut'>checkout</button>
-              <button className='cartUpdateQty'>update quantity</button>
-              <button className='cartContinue'>continue shopping</button>
+            <div className={`cartButtons `}>
+              <button
+                className={`cartCheckOut ${
+                  isButtonDisabled ? 'disableButton' : ''
+                }`}
+                id='cartCheckOutButton'
+                onClick={() => setHidePopup()}
+                disabled={isButtonDisabled}
+              >
+                checkout
+              </button>
+              <button
+                className='cartContinue'
+                onClick={() => {
+                  goTo();
+                }}
+              >
+                continue shopping
+              </button>
+            </div>
+          </div>
+          <div className={`popupBG ${hidePopup ? 'hidden' : ''}`}>
+            <div className='cartPopup'>
+              <div className='cartPopupMessage'>
+                User will continue to confirmation page and the make payment
+              </div>
+              <div className='buttonFooter'>
+                <button
+                  className='buttonContinue'
+                  onClick={() => {
+                    closePopup();
+                  }}
+                >
+                  Close
+                </button>
+                <button
+                  className='buttonCheckOut'
+                  onClick={() => {
+                    finishProcess();
+                  }}
+                >
+                  Finish Process
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -175,6 +241,9 @@ export default function Cart() {
               src='/emptyCart.png'
               alt='Empty Cart'
               className='mx-auto my-auto'
+              onError={(e) => {
+                e.target.src = '/emptyCart.png';
+              }}
             />
             Your cart is empty.
           </div>
@@ -198,7 +267,6 @@ export default function Cart() {
             <div className='cartNotes'></div>
             <div className='cartButtons'>
               <button className='cartCheckOut'>checkout</button>
-              <button className='cartUpdateQty'>update quantity</button>
               <button className='cartContinue'>continue shopping</button>
             </div>
           </div>
@@ -277,9 +345,10 @@ export default function Cart() {
         <div className='cartFooter'>
           <div className='cartNotes'></div>
           <div className='cartButtons'>
-            <button className='cartCheckOut'>checkout</button>
-            <button className='cartUpdateQty'>update quantity</button>
-            <button className='cartContinue'>continue shopping</button>
+            <button className='cartCheckOut disableButton'>checkout</button>
+            <button className='cartContinue disableButton'>
+              continue shopping
+            </button>
           </div>
         </div>
       </div>

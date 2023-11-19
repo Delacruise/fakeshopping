@@ -35,7 +35,6 @@ export default function Navigation() {
     if (!cart || cart.length === 0) {
       return 0;
     }
-
     // Use reduce to sum up the qty property of each item
     const totalQuantity = cart.reduce((total, item) => total + item.qty, 0);
 

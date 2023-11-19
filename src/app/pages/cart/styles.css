@@ -24,8 +24,6 @@
 
 .cartProductImg {
   @apply border rounded-lg;
-  width: 128px;
-  height: 128px;
 }
 
 .cartProductInfo {
@@ -41,7 +39,7 @@
 }
 
 .cartProductQTY {
-  @apply border w-16 p-4 pl-6 pr-6 mr-10 rounded-lg;
+  @apply border w-16 p-4 pl-4 pr-4 mr-10 rounded-lg text-center;
 }
 
 .cartProductDel {
@@ -121,4 +119,8 @@
 .cartButtons .cartContinue, 
 .cartButtons .cartCheckOut {
   @apply mb-4 uppercase font-semibold rounded-lg;
+}
+
+.disableButton {
+   @apply  bg-gray-300 text-gray-400 hover:bg-gray-300;
 }

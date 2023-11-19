@@ -21,23 +21,16 @@ export default function ProductDetail() {
   const cartItemsArray = JSON.parse(localStorage.getItem('localCart')) || [];
 
   const addToCart = (item, qty) => {
-    // localStorage.removeItem('localCart');
     let cartItems = cartItemsArray;
-
-    // Check if the item already exists in the cart
     const existingItemIndex = cartItems.findIndex(
       (cartItem) => cartItem.id === item.id
     );
 
     if (existingItemIndex !== -1) {
-      // Item already exists, update the quantity
       cartItems[existingItemIndex].qty += qty;
     } else {
-      // Item doesn't exist, add it to the cart
       cartItems.push({ ...item, qty });
     }
-
-    // Update the local storage with the modified cartItems
     localStorage.setItem('localCart', JSON.stringify(cartItems));
     setHidePopup(false);
 
