@@ -2,11 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import GetProduct from '../../api/getProduct/route'
+import GetProduct from '../../api/getProduct/route';
+import { useRouter } from 'next/navigation';
 
 export default function ProductDetail() {
   const [productData, setProductData] = useState();
   const [loading, setLoading] = useState(false);
+  const [prodQty, setProdQty] = useState(1);
+  const [hidePopup, setHidePopup] = useState(true);
+  const router = useRouter();
 
   var queryString = window.location.search;
   var urlParams = new URLSearchParams(queryString);
@@ -14,26 +18,33 @@ export default function ProductDetail() {
   var parts = paramID.split('=');
   const productID = parts[1];
 
-  const product = {
-    id: 43,
-    title: 'Handcrafted Granite Chips',
-    price: 434,
-    description:
-      'The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J',
-    images: [
-      'https://i.imgur.com/Au8J9sX.jpeg',
-      'https://i.imgur.com/gdr8BW2.jpeg',
-      'https://i.imgur.com/KDCZxnJ.jpeg',
-    ],
-    creationAt: '2023-11-12T18:47:00.000Z',
-    updatedAt: '2023-11-12T18:47:00.000Z',
-    category: {
-      id: 4,
-      name: 'Shoes',
-      image: 'https://i.imgur.com/qNOjJje.jpeg',
-      creationAt: '2023-11-12T18:47:00.000Z',
-      updatedAt: '2023-11-12T18:47:00.000Z',
-    },
+  const cartItemsArray = JSON.parse(localStorage.getItem('localCart')) || [];
+
+  const addToCart = (item, qty) => {
+    let cartItems = cartItemsArray;
+    const existingItemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+
+    if (existingItemIndex !== -1) {
+      cartItems[existingItemIndex].qty += qty;
+    } else {
+      cartItems.push({ ...item, qty });
+    }
+    localStorage.setItem('localCart', JSON.stringify(cartItems));
+    setHidePopup(false);
+
+    console.log('Cart Items: ', cartItems);
+  };
+
+  const closePopup = () => {
+    setHidePopup(true);
+  };
+
+  const goTo = () => {
+    setHidePopup(false);
+    router.push('/pages/cart');
+    location.replace('/pages/cart');
   };
 
   const fetchData = async () => {
@@ -60,12 +71,15 @@ export default function ProductDetail() {
       <div className='pageContainer'>
         <div className='productContainer'>
           <div>
-            <Image
+            <img
               src={productData.images[0]}
               alt={productData.title}
               width={500}
               height={500}
               className='productImage'
+              onError={(e) => {
+                e.target.src = '/default.jpg';
+              }}
             />
           </div>
           <div className='productInfo'>
@@ -74,8 +88,45 @@ export default function ProductDetail() {
             <div className='productPrice'>$ {productData.price}</div>
             <div className='productDescription'>{productData.description}</div>
             <div className='cartButtonSection'>
-              <input className='input' defaultValue='1' />
-              <button className='buttonCart'> Add to cart</button>
+              <input
+                className='input'
+                defaultValue='1'
+                onChange={(e) => {
+                  setProdQty(parseInt(e.target.value));
+                }}
+                value={prodQty}
+              />
+              <button
+                className='buttonCart'
+                onClick={() => {
+                  addToCart(productData, prodQty);
+                }}
+              >
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className={`popupBG ${hidePopup ? 'hidden' : ''}`}>
+          <div className='cartPopup'>
+            <div className='cartPopupMessage'>Item added to cart</div>
+            <div className='buttonFooter'>
+              <button
+                className='buttonContinue'
+                onClick={() => {
+                  closePopup();
+                }}
+              >
+                Continue
+              </button>
+              <button
+                className='buttonCheckOut'
+                onClick={() => {
+                  goTo();
+                }}
+              >
+                Checkout
+              </button>
             </div>
           </div>
         </div>

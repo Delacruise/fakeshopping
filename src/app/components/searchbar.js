@@ -1,14 +1,49 @@
+'use client';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 export default function SearchBar() {
+  const [searchQ, setSearchQ] = useState();
+  const router = useRouter();
+
+  const updateUrlParams = (params) => {
+    let currentUrl = window.location.href;
+    const urlObj = new URL(currentUrl);
+    const urlSearchParams = urlObj.searchParams;
+
+    for (const [key, value] of Object.entries(params)) {
+      if (urlSearchParams.has(key)) {
+        urlSearchParams.set(key, value);
+      } else {
+        urlSearchParams.append(key, value);
+      }
+    }
+
+    return urlObj.toString();
+  };
+
+  const searchStuff = () => {
+    if (searchQ !== '' && searchQ !== undefined) {
+      let newUrl = updateUrlParams({ searchQ: searchQ });
+      router.push(newUrl);
+      location.replace(newUrl);
+    }
+  };
+
   return (
     <>
       <div className='searchBar'>
-        <input className='searchInput' placeholder='search' />
-        <button className='searchButton'>
+        <input
+          className='searchInput'
+          placeholder='search'
+          value={searchQ}
+          onChange={(e) => setSearchQ(e.target.value)}
+        />
+        <button className='searchButton' onClick={searchStuff}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
             fill='currentColor'
-            class='w-6 h-6'
+            className='w-6 h-6'
           >
             <path
               fill-rule='evenodd'

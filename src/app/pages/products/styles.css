@@ -1,12 +1,20 @@
 .leftCol {
-  @apply w-96 min-h-screen;
+  @apply w-96;
 }
 
 .rightCol {
-  @apply w-full min-h-screen;
+  @apply w-full ;
 }
 
 
 .productsGrid{
-    @apply flex gap-4 justify-evenly flex-wrap ;
+    @apply flex gap-4 justify-between flex-wrap content-start ;
+}
+
+.cardImage {
+  @apply object-cover h-64;
+}
+
+.resultsBanner {
+  @apply text-lg text-gray-500 mb-6 h-full;
 }

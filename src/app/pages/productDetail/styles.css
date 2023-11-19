@@ -1,29 +1,68 @@
 .productContainer {
-    @apply bg-white p-4 flex gap-16;
+  @apply bg-white p-4 flex gap-16 relative;
 }
 
 .productImage {
-    @apply rounded-2xl;
+  @apply rounded-2xl;
 }
 
-.productInfo {}
+.productInfo {
+}
 
-.categoryName {@apply text-gray-600 font-semibold uppercase mb-2}
+.categoryName {
+  @apply text-gray-600 font-semibold uppercase mb-2;
+}
 
-.productName {@apply text-gray-900 font-bold text-3xl pt-2 pb-4} 
+.productName {
+  @apply text-gray-900 font-bold text-3xl pt-2 pb-4;
+}
 
-.productPrice {@apply text-gray-900 font-bold text-2xl text-red-800 pb-4}
+.productPrice {
+  @apply text-gray-900 font-bold text-2xl text-red-800 pb-4;
+}
 
-.productDescription {@apply pb-4 text-base}
+.productDescription {
+  @apply pb-4 text-xl;
+}
 
-.cartButtonSection {@apply flex gap-4;}
+.cartButtonSection {
+  @apply flex gap-4;
+}
 
 .input {
-    @apply border p-3 rounded-lg text-center text-lg;
-    width: 50px
+  @apply border p-3 rounded-lg text-center text-lg;
+  width: 50px;
 }
 
 .buttonCart {
-    width:200px;
-    @apply p-3 text-center font-bold bg-red-900 text-white capitalize rounded-md hover:bg-red-700;
+  width: 200px;
+  @apply p-3 text-center font-bold bg-orange-600 text-white capitalize rounded-md hover:bg-orange-500;
+}
+
+.popupBG {
+  @apply z-10 backdrop-blur-lg absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center
+}
+
+.cartPopup {
+  @apply w-[500px] bg-white text-center   border-0 rounded-2xl shadow-2xl overflow-hidden
+}
+
+.buttonFooter{
+  @apply  bg-orange-400  flex w-full 
+}
+
+.cartPopupMessage{
+  @apply text-xl text-white bg-orange-300  p-5 pt-8 pb-8
+}
+
+.buttonContinue, .buttonCheckOut{
+  @apply text-white uppercase cursor-pointer p-5 w-full font-semibold
+}
+
+.buttonContinue {
+  @apply text-center hover:bg-orange-500;
+}
+
+.buttonCheckOut {
+  @apply text-center hover:bg-orange-500;
 }

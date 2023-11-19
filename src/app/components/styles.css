@@ -1,81 +1,234 @@
 /* NAVIGATION */
 .navContainer {
-  @apply flex w-full p-4 text-center text-white text-3xl mb-4;
+  @apply flex w-full p-4 text-center text-white  border-b-2;
 }
 
 .menuItem {
-  @apply text-gray-400 items-center justify-center hover:text-red-400 transition-colors duration-500;
+  @apply text-gray-400 items-center justify-center hover:text-orange-600 transition-colors duration-500 text-lg font-semibold;
+  position: relative !important;
 }
 
 .active {
-  @apply text-red-400;
+  @apply text-orange-600;
 }
 
-/* NAVIGATION */
+/* FOOTER */
 .footerContainer {
+  @apply border-t-2;
 }
 
-.column{ @apply w-1/4}
+.column {
+  @apply w-1/4;
+}
+
+.social-icon {
+  width: 40px !important;
+  height: 40px !important;
+  cursor: pointer;
+}
 
 .socialIcons {
-  @apply flex gap-4 mt-4;
+  @apply flex gap-2 mx-auto m-10 w-full justify-center;
 }
 
 .icon {
-  @apply bg-red-900 pt-1 pb-1 p-2  text-white rounded-md text-base;
+  @apply text-white rounded-md text-xl;
 }
 
 .footerTitle {
-  @apply font-bold uppercase text-lg text-left mb-2 text-red-800;
+  @apply font-bold uppercase text-lg text-left mb-2 text-gray-600;
 }
 
 .footerLink {
-  @apply text-gray-400 font-normal text-lg text-left hover:text-red-400 transition-colors duration-500 cursor-pointer;
+  @apply text-gray-500 font-normal text-lg text-left hover:text-orange-600 transition-colors duration-500 cursor-pointer pb-2;
 }
 
 /* SLIDERS */
-.sliderTitle{
-@apply uppercase w-full text-gray-500 font-semibold tracking-widest text-3xl mb-8;
+.sliderTitle {
+  @apply uppercase w-full text-gray-500 font-semibold tracking-widest text-3xl mb-8;
 }
 
 .sliderRow {
   @apply flex justify-between gap-4 flex-nowrap overflow-x-auto flex space-x-4;
 }
 
+/* Webkit (Chrome, Safari, etc.) scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ff7e02; /* Color of the thumb */
+  border-radius: 6px; /* Border radius of the thumb */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #d3d3d3; /* Color of the track */
+  border-radius: 6px; /* Border radius of the track */
+}
+
 .cardSlider {
-@apply w-64 bg-gray-200 rounded-lg border border-gray-300 mb-4;
+  @apply w-64 bg-gray-200 rounded-lg border border-gray-300 mb-4;
 }
 
 .cardImage {
-@apply rounded-lg rounded-b-none max-h-64 max-w-xl;
+  @apply rounded-lg rounded-b-none max-h-64 max-w-xl;
 }
 
 .cardTitle {
-  @apply rounded-lg rounded-b-none p-4 w-full text-gray-500 font-semibold text-base capitalize;
+  @apply rounded-lg rounded-b-none p-4 w-full text-gray-500 font-semibold text-xl capitalize;
 }
 
 /* SEARCH BAR */
 .searchBar {
-  @apply w-full border rounded-lg border-gray-200 flex overflow-hidden
+  @apply w-full border rounded-lg border-gray-200 flex overflow-hidden;
 }
 
 .searchInput {
-  @apply border-0 w-full p-2 text-gray-600;
+  @apply border-0 w-full p-3 text-gray-500 text-lg;
 }
 
-.searchButton{
-  @apply border-0 text-white bg-green-600 p-2;
+.searchButton {
+  @apply border-0 text-white p-4;
+  background-color: #ff7e02;
 }
 
 /* PRODUCTS FILTER */
 .priceFilter {
-  @apply bg-white flex gap-4 w-full items-center
+  @apply bg-white w-full items-center;
 }
 
-.max,.min {
-@apply flex gap-1;
+.filterHeader {
+  @apply pb-3 border-b;
 }
 
-.slider {@apply  w-full;}
+.filter {
+  @apply pb-4 flex items-center text-gray-500;
+}
 
-.line {@apply w-full border-t-2 border-b-2 p-0}
+.priceFilterInput {
+  @apply p-2 pt-2 pb-2 border text-lg rounded-lg border-gray-200 w-2/4;
+}
+
+.filterButton {
+  background-color: #ff7e02;
+  @apply text-white p-2 pl-6 pr-6 uppercase  rounded-lg mx-auto mt-4 mb-4 w-full text-lg;
+}
+
+.checkbox-round {
+  width: 24px;
+  height: 25px;
+  background-color: white;
+  border-radius: 20%;
+  vertical-align: middle;
+  border: 1px solid orange;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-round:checked {
+  background-color: orange;
+}
+
+label {
+  cursor: pointer;
+  @apply text-lg text-gray-500;
+}
+
+label:hover {
+  color: orange;
+}
+
+.categoryItem {
+  @apply flex gap-4 mb-4 justify-items-center hover:text-indigo-300 items-center;
+}
+
+/* PAGE FILLERS */
+.pageFillerContainer {
+  @apply w-full p-4 flex justify-around;
+}
+
+.fillerCol {
+  @apply p-4 flex justify-items-center items-center text-gray-400;
+}
+
+.fillerItemIcon {
+  @apply pr-4;
+  color: #ff7e02;
+}
+
+.fillerItemTitle {
+  @apply text-gray-600 font-bold text-2xl;
+}
+
+.fillerItemText {
+  @apply text-xl;
+}
+
+.pageFillerLeftCol {
+  @apply w-1/4 text-gray-600 font-bold text-2xl mr-4;
+}
+
+.pageFillerRightCol {
+  @apply w-3/4;
+}
+
+.LeftColHeader {
+}
+
+.askHelp {
+  @apply text-xl font-semibold uppercase flex gap-4 items-center cursor-pointer pt-6;
+  color: #ff7e02;
+}
+
+.banner2 {
+  @apply flex justify-center w-full h-96 rounded-3xl;
+  background-color: #ffc300;
+}
+
+.pageFiller3Container {
+  @apply w-full relative;
+}
+
+.pageFiller3Title {
+  @apply text-center text-4xl text-gray-500 font-bold uppercase mb-4;
+}
+
+.pageFiller3SubTitle {
+  @apply text-center text-xl text-gray-400 mb-6;
+}
+
+.shortLine {
+  @apply w-20 border-b border-gray-200 mx-auto mb-6;
+}
+
+.testimonialSection {
+  @apply items-center justify-center justify-around mb-16;
+}
+
+.testimonialBlock {
+  @apply p-10 pb-16 text-center text-xl text-gray-400 rounded-xl w-72 shadow-lg relative border;
+}
+
+.testimonialBlockOrange {
+  background-color: #ff7e02;
+  color: #fff;
+}
+
+.testimonialBlockWhite {
+}
+
+.testimonialImg {
+  @apply rounded-full border-4 border-white absolute -bottom-10 left-1/2 transform -translate-x-1/2;
+}
+
+.testimonialBlockDriftDown {
+  @apply absolute bottom-[50px];
+}
+
+.testimonialBlockTitle {
+  @apply text-xl font-bold uppercase pb-2 text-gray-500;
+}
