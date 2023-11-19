@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Cart() {
   const cartArray = JSON.parse(localStorage.getItem('localCart')) || [];
@@ -11,7 +12,6 @@ export default function Cart() {
   const router = useRouter();
 
   const deleteItem = (id) => {
-    debugger;
     const newCart = cartArray.filter((item) => item.id !== id);
     localStorage.setItem('localCart', JSON.stringify(newCart));
     console.log('New Cart: ', newCart);
@@ -100,7 +100,14 @@ export default function Cart() {
                   />
                 </div>
                 <div className='cartProductInfo'>
-                  <div className='cartProductName'>{cartItem.title}</div>
+                  <a
+                    href={`/pages/productDetail?id=${cartItem.id}`}
+                    className=''
+                  >
+                    <div className='cartProductName hover:text-orange-600'>
+                      {cartItem.title}
+                    </div>
+                  </a>
                   <div className='cartProductCat'>{cartItem.category.name}</div>
                 </div>
                 <input

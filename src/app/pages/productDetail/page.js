@@ -3,11 +3,14 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import GetProduct from '../../api/getProduct/route';
+import { useRouter } from 'next/navigation';
 
 export default function ProductDetail() {
   const [productData, setProductData] = useState();
   const [loading, setLoading] = useState(false);
   const [prodQty, setProdQty] = useState(1);
+  const [hidePopup, setHidePopup] = useState(true);
+  const router = useRouter();
 
   var queryString = window.location.search;
   var urlParams = new URLSearchParams(queryString);
@@ -36,8 +39,19 @@ export default function ProductDetail() {
 
     // Update the local storage with the modified cartItems
     localStorage.setItem('localCart', JSON.stringify(cartItems));
+    setHidePopup(false);
 
     console.log('Cart Items: ', cartItems);
+  };
+
+  const closePopup = () => {
+    setHidePopup(true);
+  };
+
+  const goTo = () => {
+    setHidePopup(false);
+    router.push('/pages/cart');
+    location.replace('/pages/cart');
   };
 
   const fetchData = async () => {
@@ -96,6 +110,29 @@ export default function ProductDetail() {
                 }}
               >
                 Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className={`popupBG ${hidePopup ? 'hidden' : ''}`}>
+          <div className='cartPopup'>
+            <div className='cartPopupMessage'>Item added to cart</div>
+            <div className='buttonFooter'>
+              <button
+                className='buttonContinue'
+                onClick={() => {
+                  closePopup();
+                }}
+              >
+                Continue
+              </button>
+              <button
+                className='buttonCheckOut'
+                onClick={() => {
+                  goTo();
+                }}
+              >
+                Checkout
               </button>
             </div>
           </div>

@@ -4,11 +4,12 @@
 }
 
 .menuItem {
-  @apply text-gray-400 items-center justify-center hover:text-red-400 transition-colors duration-500 text-lg font-semibold;
+  @apply text-gray-400 items-center justify-center hover:text-orange-600 transition-colors duration-500 text-lg font-semibold;
+  position: relative !important;
 }
 
 .active {
-  @apply text-red-400;
+  @apply text-orange-600;
 }
 
 /* FOOTER */

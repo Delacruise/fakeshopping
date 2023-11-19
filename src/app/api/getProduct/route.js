@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 export default async function GET(id) {
   const productUrl = 'https://api.escuelajs.co/api/v1/products/' + id;
   const url = 'https://corsproxy.io/?' + encodeURIComponent(productUrl);
-
   try {
     const response = await axios.get(url);
     const products = response.data;
