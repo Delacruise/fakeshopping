@@ -1,0 +1,126 @@
+.cartContainer {
+  @apply m-10 text-lg text-gray-400;
+}
+
+.cartTile {
+  @apply uppercase text-gray-500 text-3xl mb-6 font-bold w-full text-center;
+}
+
+.cartHeaders {
+  @apply border-b font-bold flex w-full gap-6 text-xl text-gray-600;
+}
+
+.cartHeader.spacer {
+    width:170px;
+}
+
+.cartProductsContainer {
+  @apply p-5 pt-0 pb-8 flex-nowrap gap-4 ;
+}
+
+.cartProductRow {
+  @apply flex gap-6 pb-8 pt-8 border-b w-full items-center;
+}
+
+.cartProductImg {
+  @apply border rounded-lg;
+}
+
+.cartProductInfo {
+  @apply w-full;
+}
+
+.cartProductName {
+  @apply font-bold text-2xl text-gray-600;
+}
+
+.cartProductCat {
+  @apply text-base;
+}
+
+.cartProductQTY {
+  @apply border w-16 p-4 pl-4 pr-4 mr-10 rounded-lg text-center;
+}
+
+.cartProductDel {
+  @apply border w-16 p-4 pl-5 pr-5 hover:bg-red-600 hover:text-white text-red-600 rounded-lg;
+}
+
+.cartProductPrice {
+  @apply font-bold text-xl text-gray-600 w-64 text-right;
+}
+
+.cartTotalContainer {
+  @apply flex gap-4 w-full;
+}
+
+.cartTotalMessage {
+  @apply w-full pl-5;
+}
+
+.cartTotalVat {
+  @apply p-4 w-72 border flex items-center;
+}
+
+.cartTotalVat .title {
+@apply w-full;
+}
+
+.cartTotalVat .value {
+@apply text-right text-2xl font-bold text-gray-600;
+}
+
+.cartTotalSubTotal {
+  @apply p-4 w-72 border flex items-center;
+}
+
+.cartTotalSubTotal .title {
+@apply w-full;
+}
+
+.cartTotalSubTotal .value {
+@apply text-right text-2xl font-bold text-gray-600;
+}
+
+.cartTotalTotal {
+  @apply p-4 w-72 border flex items-center;
+}
+
+.cartTotalTotal .title {
+@apply w-full;
+}
+
+.cartTotalTotal .value {
+@apply text-right text-2xl font-bold text-gray-600;
+}
+
+.cartFooter {
+  @apply pt-4 pb-4 flex gap-4 w-full;
+}
+
+.cartNotes {
+  @apply w-full pb-4 pt-4;
+}
+
+.cartButtons {
+  @apply mt-6;
+  width:256px;
+}
+
+.cartUpdateQty, .cartContinue {
+  @apply bg-gray-500 p-6 pl-4 pr-4 hover:bg-gray-400 text-white text-center w-full;
+}
+
+.cartCheckOut {
+  @apply bg-orange-600 p-6 hover:bg-orange-500 text-white text-center w-full;
+}
+
+.cartButtons .cartUpdateQty,
+.cartButtons .cartContinue, 
+.cartButtons .cartCheckOut {
+  @apply mb-4 uppercase font-semibold rounded-lg;
+}
+
+.disableButton {
+   @apply  bg-gray-300 text-gray-400 hover:bg-gray-300;
+}

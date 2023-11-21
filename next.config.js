@@ -1,4 +1,48 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    domains: [
+      'i.imgur.com',
+      'api.lorem.space',
+      'icons-store.com.mx',
+      'placeimg.com',
+      'm.media-amazon.com',
+      'www.dhresource.com',
+      'www.google.com',
+      'i.pinimg.com',
+      'liquordeliverysk.ca',
+      'image.shutterstock.com',
+      'imgur.com',
+      'cdn.myoutfits.biz',
+      'www.comercialbenavides.net',
+      'cdn.britannica.com',
+      'www.pixelstalk.net',
+      'wallpapercave.com',
+      'img.freepik.com',
+      'media.istockphoto.com',
+      'cdn.pixabay.com',
+      'e7.pngegg.com',
+      'cdn.shopify.com',
+      'upload.wikimedia.org',
+      'cloudflare-ipfs.com',
+      'picsum.photos',
+      'static-cse.canva.com',
+      'api.escuelajs.co',
+      'i.ebayimg.com',
+      'lamanzanamordida.net',
+      'media.vogue.mx',
+      'img.remediosdigitales.com',
+      'www.zonadamas.mx',
+      'grecoshoes.mx',
+      'imagenes.marie-claire.es',
+      'cdn.computerhoy.com',
+      'p.turbosquid.com',
+      'framerusercontent.com',
+      'mail.google.com',
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
